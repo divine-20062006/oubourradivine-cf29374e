@@ -9,7 +9,7 @@ const Education = () => {
           <div className="bg-white p-8 rounded-xl shadow-sm animate-fade-up">
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-2">BTS SIO option SISR</h3>
-              <p className="text-gray-600">2023 - 2025</p>
+              <p className="text-gray-600">2024 - 2026</p>
               <div className="mt-4">
                 <h4 className="font-medium mb-2">Compétences acquises :</h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
