@@ -60,7 +60,7 @@ const Header = () => {
               className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg transition-all"
               onClick={() => window.open('/cv.pdf', '_blank')}
             >
-              <FileDown className="mr-2 h-4 w-4" /> CV
+              <FileDown className="mr-2 h-4 w-4" /> Télécharger mon CV
             </Button>
           </div>
         </nav>
