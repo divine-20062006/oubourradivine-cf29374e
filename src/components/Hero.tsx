@@ -1,3 +1,6 @@
+
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16">
@@ -11,12 +14,12 @@ const Hero = () => {
             Étudiante passionnée en BTS SISR, je développe des solutions innovantes 
             pour répondre aux défis technologiques d'aujourd'hui.
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="inline-block bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors"
           >
             Me contacter
-          </a>
+          </Link>
         </div>
       </div>
     </section>

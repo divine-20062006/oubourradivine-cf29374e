@@ -1,7 +1,10 @@
+
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +20,36 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <span className="text-xl font-semibold">Portfolio</span>
           <div className="flex gap-8">
-            <a href="#accueil" className="hover:text-primary transition-colors">Accueil</a>
-            <a href="#competences" className="hover:text-primary transition-colors">Compétences</a>
-            <a href="#projets" className="hover:text-primary transition-colors">Projets</a>
-            <a href="#formation" className="hover:text-primary transition-colors">Formation</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+            <Link 
+              to="/" 
+              className={`hover:text-primary transition-colors ${location.pathname === '/' ? 'text-primary' : ''}`}
+            >
+              Accueil
+            </Link>
+            <Link 
+              to="/competences" 
+              className={`hover:text-primary transition-colors ${location.pathname === '/competences' ? 'text-primary' : ''}`}
+            >
+              Compétences
+            </Link>
+            <Link 
+              to="/projets" 
+              className={`hover:text-primary transition-colors ${location.pathname === '/projets' ? 'text-primary' : ''}`}
+            >
+              Projets
+            </Link>
+            <Link 
+              to="/formation" 
+              className={`hover:text-primary transition-colors ${location.pathname === '/formation' ? 'text-primary' : ''}`}
+            >
+              Formation
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`hover:text-primary transition-colors ${location.pathname === '/contact' ? 'text-primary' : ''}`}
+            >
+              Contact
+            </Link>
           </div>
         </nav>
       </div>
