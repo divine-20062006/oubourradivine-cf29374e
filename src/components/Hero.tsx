@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FileDown } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,12 +26,24 @@ const Hero = () => {
             Étudiante passionnée en BTS SISR, je développe des solutions innovantes 
             pour répondre aux défis technologiques d'aujourd'hui.
           </p>
-          <Link
-            to="/contact"
-            className={`inline-block bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-all duration-700 delay-900 hover:shadow-lg hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          >
-            Me contacter
-          </Link>
+          
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Button 
+              variant="outline" 
+              className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all"
+              onClick={() => window.open('/cv.pdf', '_blank')}
+            >
+              <FileDown className="mr-2" /> Télécharger mon CV
+            </Button>
+            
+            <Link to="/contact">
+              <Button 
+                className="rounded-full hover:shadow-lg hover:-translate-y-1 transition-all"
+              >
+                Me contacter
+              </Button>
+            </Link>
+          </div>
         </div>
         
         {/* Éléments de décoration animés */}
