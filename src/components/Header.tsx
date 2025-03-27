@@ -16,6 +16,16 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleDownloadCV = () => {
+    // Création d'un lien temporaire pour télécharger le CV
+    const link = document.createElement('a');
+    link.href = '/cv_oubourra_divine.pdf'; // Assurez-vous que ce fichier existe dans votre dossier public
+    link.download = 'CV_OUBOURRA_Divine.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"}`}>
       <div className="section-container py-4">
@@ -58,7 +68,7 @@ const Header = () => {
               variant="outline" 
               size="sm"
               className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg transition-all"
-              onClick={() => window.open('/cv.pdf', '_blank')}
+              onClick={handleDownloadCV}
             >
               <FileDown className="mr-2 h-4 w-4" /> Télécharger mon CV
             </Button>

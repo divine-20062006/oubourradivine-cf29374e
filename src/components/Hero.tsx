@@ -12,6 +12,16 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
+  const handleDownloadCV = () => {
+    // Création d'un lien temporaire pour télécharger le CV
+    const link = document.createElement('a');
+    link.href = '/cv_oubourra_divine.pdf'; // Assurez-vous que ce fichier existe dans votre dossier public
+    link.download = 'CV_OUBOURRA_Divine.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
@@ -31,7 +41,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all"
-              onClick={() => window.open('/cv.pdf', '_blank')}
+              onClick={handleDownloadCV}
             >
               <FileDown className="mr-2" /> Télécharger mon CV
             </Button>
