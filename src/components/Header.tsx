@@ -27,39 +27,39 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#1A1F2C]/80 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
       <div className="section-container py-4">
         <nav className="flex items-center justify-between">
-          <span className="text-xl font-semibold">Portfolio</span>
+          <span className="text-xl font-semibold text-white">Portfolio</span>
           <div className="flex items-center gap-8">
             <div className="flex gap-8">
               <Link 
                 to="/" 
-                className={`hover:text-primary transition-colors ${location.pathname === '/' ? 'text-primary' : ''}`}
+                className={`hover:text-[#00FF41] transition-colors text-white ${location.pathname === '/' ? 'text-[#00FF41]' : ''}`}
               >
                 Accueil
               </Link>
               <Link 
                 to="/competences" 
-                className={`hover:text-primary transition-colors ${location.pathname === '/competences' ? 'text-primary' : ''}`}
+                className={`hover:text-[#00FF41] transition-colors text-white ${location.pathname === '/competences' ? 'text-[#00FF41]' : ''}`}
               >
                 Compétences
               </Link>
               <Link 
                 to="/projets" 
-                className={`hover:text-primary transition-colors ${location.pathname === '/projets' ? 'text-primary' : ''}`}
+                className={`hover:text-[#00FF41] transition-colors text-white ${location.pathname === '/projets' ? 'text-[#00FF41]' : ''}`}
               >
                 Projets
               </Link>
               <Link 
                 to="/formation" 
-                className={`hover:text-primary transition-colors ${location.pathname === '/formation' ? 'text-primary' : ''}`}
+                className={`hover:text-[#00FF41] transition-colors text-white ${location.pathname === '/formation' ? 'text-[#00FF41]' : ''}`}
               >
                 Formation
               </Link>
               <Link 
                 to="/contact" 
-                className={`hover:text-primary transition-colors ${location.pathname === '/contact' ? 'text-primary' : ''}`}
+                className={`hover:text-[#00FF41] transition-colors text-white ${location.pathname === '/contact' ? 'text-[#00FF41]' : ''}`}
               >
                 Contact
               </Link>
@@ -67,7 +67,7 @@ const Header = () => {
             <Button 
               variant="outline" 
               size="sm"
-              className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg transition-all"
+              className="rounded-full bg-transparent text-white border-[#00FF41]/50 hover:bg-[#00FF41]/10 hover:text-[#00FF41] hover:shadow-lg transition-all hover:border-[#00FF41]"
               onClick={handleDownloadCV}
             >
               <FileDown className="mr-2 h-4 w-4" /> Télécharger mon CV

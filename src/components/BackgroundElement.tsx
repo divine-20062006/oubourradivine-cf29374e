@@ -10,11 +10,17 @@ const BackgroundElement = () => {
 
   return (
     <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-      {/* Dark background overlay */}
-      <div className="absolute inset-0 bg-[#1A1F2C] opacity-95"></div>
+      {/* Main background image */}
+      <div 
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${isVisible ? 'opacity-70' : 'opacity-0'}`}
+        style={{ backgroundImage: "url('/lovable-uploads/72638fe7-2fcb-4793-89cb-b220faf818fe.png')" }}
+      ></div>
       
-      {/* Matrix-like code rain effect */}
-      <div className={`absolute inset-0 opacity-20 transition-opacity duration-1000 ${isVisible ? 'opacity-20' : 'opacity-0'}`}>
+      {/* Dark overlay to ensure text is readable */}
+      <div className="absolute inset-0 bg-[#1A1F2C] opacity-70"></div>
+      
+      {/* Matrix-like code rain effect (reduced opacity) */}
+      <div className={`absolute inset-0 opacity-10 transition-opacity duration-1000 ${isVisible ? 'opacity-10' : 'opacity-0'}`}>
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <pattern id="matrixPattern" width="300" height="300" patternUnits="userSpaceOnUse">
             <text x="10" y="20" fill="#00FF41" fontSize="12">01001010</text>
@@ -36,37 +42,9 @@ const BackgroundElement = () => {
         </svg>
       </div>
       
-      {/* Network/circuit grid pattern */}
-      <div className={`absolute inset-0 opacity-15 transition-opacity duration-1000 ${isVisible ? 'opacity-15' : 'opacity-0'}`}>
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="circuitPattern" width="120" height="120" patternUnits="userSpaceOnUse">
-            <path d="M10,10 L110,10 L110,110 L10,110 Z" fill="none" stroke="#0AFFFF" strokeWidth="0.5"/>
-            <circle cx="10" cy="10" r="3" fill="#0AFFFF" opacity="0.7"/>
-            <circle cx="110" cy="10" r="3" fill="#0AFFFF" opacity="0.7"/>
-            <circle cx="110" cy="110" r="3" fill="#0AFFFF" opacity="0.7"/>
-            <circle cx="10" cy="110" r="3" fill="#0AFFFF" opacity="0.7"/>
-            <path d="M10,60 L50,60 M70,60 L110,60 M60,10 L60,50 M60,70 L60,110" stroke="#0AFFFF" strokeWidth="0.5" opacity="0.5"/>
-            <circle cx="60" cy="60" r="5" fill="#0AFFFF" opacity="0.8"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#circuitPattern)"/>
-        </svg>
-      </div>
-      
-      {/* Security element graphics */}
-      <div className={`absolute opacity-5 transition-opacity duration-1000 ${isVisible ? 'opacity-5' : 'opacity-0'}`}>
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="securityPattern" width="400" height="400" patternUnits="userSpaceOnUse">
-            <path d="M200,50 L225,100 L275,100 L300,50 L275,0 L225,0 Z" fill="none" stroke="#FF003C" strokeWidth="1.5" opacity="0.6"/>
-            <circle cx="250" cy="50" r="20" fill="none" stroke="#FF003C" strokeWidth="1.5" opacity="0.6"/>
-            <path d="M240,50 L260,50 M250,40 L250,60" stroke="#FF003C" strokeWidth="1.5" opacity="0.6"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#securityPattern)"/>
-        </svg>
-      </div>
-      
-      {/* Glowing accent elements */}
-      <div className={`absolute top-10 right-10 w-96 h-96 rounded-full bg-[#0AFFFF]/5 blur-3xl transition-all duration-1000 ${isVisible ? 'opacity-30' : 'opacity-0'}`}></div>
-      <div className={`absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#FF003C]/5 blur-3xl transition-all duration-1000 ${isVisible ? 'opacity-20' : 'opacity-0'}`}></div>
+      {/* Subtle glowing accent elements */}
+      <div className={`absolute top-10 right-10 w-96 h-96 rounded-full bg-[#0AFFFF]/10 blur-3xl transition-all duration-1000 ${isVisible ? 'opacity-30' : 'opacity-0'}`}></div>
+      <div className={`absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#00FF41]/10 blur-3xl transition-all duration-1000 ${isVisible ? 'opacity-20' : 'opacity-0'}`}></div>
     </div>
   );
 };
