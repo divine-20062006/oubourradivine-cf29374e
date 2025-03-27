@@ -5,11 +5,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --background: 222 24% 13%; /* Dark cybersecurity theme background */
+    --foreground: 210 40% 98%;
+    --border: 214 16% 20%;
+    --input: 214 16% 20%;
+    --ring: 222 24% 13%;
   }
 
   body {
@@ -23,15 +23,29 @@
   }
   
   .title-badge {
-    @apply inline-block px-3 py-1 mb-3 text-sm font-medium bg-primary/10 text-primary rounded-full;
+    @apply inline-block px-3 py-1 mb-3 text-sm font-medium bg-[#00FF41]/20 text-[#00FF41] rounded-full;
   }
 
   .section-title {
     @apply text-3xl sm:text-4xl font-bold mb-8;
   }
   
-  /* Add glass effect for card backgrounds */
+  /* Add glass effect for card backgrounds - cyber theme */
   .glass-card {
-    @apply bg-white/90 backdrop-blur-sm;
+    @apply bg-[#1A1F2C]/80 backdrop-blur-sm border border-[#0AFFFF]/20;
+  }
+  
+  /* Add cyber terminal effect */
+  .cyber-terminal {
+    @apply bg-[#121212] border border-[#00FF41]/30 text-[#00FF41] font-mono;
+  }
+  
+  /* Add cyber glow effect */
+  .cyber-glow {
+    @apply relative;
+  }
+  
+  .cyber-glow::after {
+    @apply content-[''] absolute -inset-[1px] bg-gradient-to-r from-[#0AFFFF] to-[#FF003C] opacity-50 blur-sm -z-10;
   }
 }

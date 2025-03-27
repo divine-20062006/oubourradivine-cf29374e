@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,12 +26,12 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#0A84FF",
-          foreground: "#FFFFFF",
+          DEFAULT: "#0AFFFF", /* Cyan for cybersecurity theme */
+          foreground: "#001A23",
         },
         secondary: {
-          DEFAULT: "#F5F5F7",
-          foreground: "#1D1D1F",
+          DEFAULT: "#1A1F2C", /* Dark shade for secondary backgrounds */
+          foreground: "#EAEFFF",
         },
       },
       keyframes: {
@@ -52,10 +53,19 @@ export default {
             opacity: "1",
           },
         },
+        "glow-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 5px #0AFFFF, 0 0 10px #0AFFFF, 0 0 15px #0AFFFF",
+          },
+          "50%": {
+            boxShadow: "0 0 10px #0AFFFF, 0 0 20px #0AFFFF, 0 0 30px #0AFFFF",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
+        "glow-pulse": "glow-pulse 2s infinite",
       },
     },
   },
