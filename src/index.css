@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,5 +28,10 @@
 
   .section-title {
     @apply text-3xl sm:text-4xl font-bold mb-8;
+  }
+  
+  /* Add glass effect for card backgrounds */
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm;
   }
 }

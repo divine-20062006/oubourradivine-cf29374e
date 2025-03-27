@@ -11,6 +11,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import EducationPage from "./pages/EducationPage";
 import ContactPage from "./pages/ContactPage";
 import Header from "./components/Header";
+import BackgroundElement from "./components/BackgroundElement";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen">
+        <div className="min-h-screen relative">
+          <BackgroundElement />
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
