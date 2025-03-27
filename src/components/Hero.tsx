@@ -19,8 +19,8 @@ const Hero = () => {
           <span className={`title-badge transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             Bienvenue sur mon Portfolio
           </span>
-          <h1 className={`text-5xl sm:text-6xl font-bold mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Solutions d'Infrastructure, Systèmes et Réseaux
+          <h1 className={`text-5xl sm:text-6xl font-bold mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-primary`}>
+            OUBOURRA Divine
           </h1>
           <p className={`text-xl text-gray-600 mb-8 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Étudiante passionnée en BTS SISR, je développe des solutions innovantes 
