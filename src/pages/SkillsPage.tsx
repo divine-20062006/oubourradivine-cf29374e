@@ -3,7 +3,7 @@ import Skills from "../components/Skills";
 
 const SkillsPage = () => {
   return (
-    <main>
+    <main className="pt-20">
       <Skills />
     </main>
   );

@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#1A1F2C]/80 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
-      <div className="section-container py-4">
+      <div className="container mx-auto py-4 px-4">
         <nav className="flex items-center justify-between">
           <span className="text-xl font-semibold text-white">Portfolio</span>
           <div className="flex items-center gap-8">

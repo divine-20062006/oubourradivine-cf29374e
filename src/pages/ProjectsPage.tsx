@@ -3,7 +3,7 @@ import Projects from "../components/Projects";
 
 const ProjectsPage = () => {
   return (
-    <main>
+    <main className="pt-20">
       <Projects />
     </main>
   );

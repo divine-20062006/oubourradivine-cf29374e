@@ -3,7 +3,7 @@ import Education from "../components/Education";
 
 const EducationPage = () => {
   return (
-    <main>
+    <main className="pt-20">
       <Education />
     </main>
   );
