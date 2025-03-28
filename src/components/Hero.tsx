@@ -29,10 +29,10 @@ const Hero = () => {
           <span className={`title-badge transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             Bienvenue sur mon Portfolio
           </span>
-          <h1 className={`text-5xl sm:text-6xl font-bold mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-primary`}>
+          <h1 className={`text-5xl sm:text-6xl font-bold mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-[#0AFFFF]`}>
             OUBOURRA Divine
           </h1>
-          <p className={`text-xl text-gray-600 mb-8 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className={`text-xl mb-8 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-white font-medium`}>
             Étudiante passionnée en BTS SISR, je développe des solutions innovantes 
             pour répondre aux défis technologiques d'aujourd'hui.
           </p>
@@ -40,7 +40,7 @@ const Hero = () => {
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Button 
               variant="outline" 
-              className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all"
+              className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-white border-white hover:border-[#0AFFFF]"
               onClick={handleDownloadCV}
             >
               <FileDown className="mr-2" /> Télécharger mon CV
