@@ -33,8 +33,7 @@ const Hero = () => {
             OUBOURRA Divine
           </h1>
           <p className={`text-xl mb-8 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-white font-medium`}>
-            Étudiante passionnée en BTS SISR, je développe des solutions innovantes 
-            pour répondre aux défis technologiques d'aujourd'hui.
+            Étudiante passionnée en BTS SIO option SISR, je développe des solutions innovantes pour répondre aux défis technologiques d'aujourd'hui.
           </p>
           
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
