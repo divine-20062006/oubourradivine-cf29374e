@@ -49,3 +49,25 @@
     @apply content-[''] absolute -inset-[1px] bg-gradient-to-r from-[#0AFFFF] to-[#FF003C] opacity-50 blur-sm -z-10;
   }
 }
+
+/* Custom keyframes for animations */
+@keyframes scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
