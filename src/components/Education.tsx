@@ -27,13 +27,7 @@ const Education = () => {
               <h4 className="font-medium mb-2 text-[#F97316]">Certifications en cours :</h4>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-[#0AFFFF]/20 text-[#0AFFFF] rounded-full border border-[#0AFFFF]/50">
-                  CISCO CCNA
-                </span>
-                <span className="px-4 py-2 bg-[#D946EF]/20 text-[#D946EF] rounded-full border border-[#D946EF]/50">
-                  Microsoft Azure
-                </span>
-                <span className="px-4 py-2 bg-[#F97316]/20 text-[#F97316] rounded-full border border-[#F97316]/50">
-                  CompTIA Security+
+                  MOOC ANSSI
                 </span>
               </div>
             </div>
