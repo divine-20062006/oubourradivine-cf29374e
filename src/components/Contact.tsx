@@ -51,7 +51,7 @@ const Contact = () => {
       if (response.ok) {
         toast({
           title: "Message envoyé !",
-          description: "Votre message a été envoyé avec succès. Merci de m'avoir contacté.",
+          description: "Votre message a été envoyé avec succès. Votre email a bien été reçu, merci de m'avoir contacté.",
         });
         
         // Réinitialiser le formulaire
