@@ -7,15 +7,11 @@ const projects = [
     image: "/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png"
   },
   {
-    title: "Sécurisation Système",
-    description: "Audit et renforcement de la sécurité d'un parc informatique, mise en place de solutions de protection et de surveillance.",
-    tags: ["Cybersécurité", "Monitoring", "Firewall"],
-  },
-  {
-    title: "Cloud Migration",
-    description: "Migration des services d'entreprise vers le cloud, optimisation des ressources et mise en place de la redondance.",
-    tags: ["Azure", "AWS", "Cloud Computing"],
-  },
+    title: "SALAC - Système de location",
+    description: "Développement d'une plateforme de gestion pour la location d'appartements et de chambres étudiantes, incluant un système de réservation en ligne.",
+    tags: ["Gestion locative", "Web", "Base de données"],
+    image: "/lovable-uploads/2aaf47bc-72f5-4c0b-99e5-a5b163901b15.png"
+  }
 ];
 
 const Projects = () => {
@@ -25,7 +21,7 @@ const Projects = () => {
         <span className="title-badge">Réalisations</span>
         <h2 className="section-title">Projets Significatifs</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
