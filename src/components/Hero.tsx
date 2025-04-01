@@ -1,8 +1,10 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadFile } from "../utils/downloadUtils";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,6 +30,18 @@ const Hero = () => {
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
         <div className={`max-w-3xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          {/* Avatar avec la photo */}
+          <div className="flex justify-center mb-6">
+            <Avatar className={`w-36 h-36 border-4 border-[#0AFFFF]/30 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+              <AvatarImage 
+                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
+                alt="Divine Oubourra" 
+                className="object-cover object-top"
+              />
+              <AvatarFallback className="bg-primary/10 text-primary font-bold text-xl">DO</AvatarFallback>
+            </Avatar>
+          </div>
+          
           <span className={`title-badge transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             Bienvenue sur mon Portfolio
           </span>
