@@ -13,9 +13,15 @@ const Hero = () => {
   }, []);
 
   const handleDownloadCV = () => {
+    // URL directe vers le fichier CV
+    const fileUrl = '/CV_OUBOURRA_Divine.pdf';
+    
+    // Ouvrir le fichier dans un nouvel onglet pour permettre à l'utilisateur de le voir
+    window.open(fileUrl, '_blank');
+    
     // Création d'un lien temporaire pour télécharger le CV
     const link = document.createElement('a');
-    link.href = '/cv_oubourra_divine.pdf'; // Assurez-vous que ce fichier existe dans votre dossier public
+    link.href = fileUrl;
     link.download = 'CV_OUBOURRA_Divine.pdf';
     document.body.appendChild(link);
     link.click();
