@@ -1,8 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
+import { downloadFile } from "../utils/downloadUtils";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,19 +13,15 @@ const Hero = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    // URL directe vers le fichier CV
-    const fileUrl = '/CV_OUBOURRA_Divine.pdf';
+    // URL complète vers le fichier CV
+    const fileUrl = `${window.location.origin}/CV_OUBOURRA_Divine.pdf`;
+    const fileName = 'CV_OUBOURRA_Divine.pdf';
     
-    // Ouvrir le fichier dans un nouvel onglet pour permettre à l'utilisateur de le voir
+    // Ouvrir dans un nouvel onglet d'abord
     window.open(fileUrl, '_blank');
     
-    // Création d'un lien temporaire pour télécharger le CV
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.download = 'CV_OUBOURRA_Divine.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Puis déclencher le téléchargement
+    downloadFile(fileUrl, fileName);
   };
 
   return (
