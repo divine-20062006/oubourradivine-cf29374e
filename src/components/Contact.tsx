@@ -34,6 +34,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      // Utilisation de FormSubmit.co avec la configuration qui garantit que vous recevrez l'email de l'expéditeur
       const response = await fetch("https://formsubmit.co/oubourra-d@saint-louis29.net", {
         method: "POST",
         headers: {
@@ -42,9 +43,11 @@ const Contact = () => {
         },
         body: new URLSearchParams({
           name: formData.name,
-          email: formData.email,
+          email: formData.email, // Envoi explicite de l'email de l'expéditeur
           message: formData.message,
-          _subject: `Nouveau message de ${formData.name} - Portfolio`
+          _replyto: formData.email, // Pour garantir que la réponse va au bon email
+          _subject: `Nouveau message de ${formData.name} - Portfolio`,
+          _captcha: "false" // Désactive le captcha pour simplifier l'expérience utilisateur
         })
       });
       

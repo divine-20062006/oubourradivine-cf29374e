@@ -19,7 +19,6 @@ const Projects = () => {
     <section id="projets">
       <div className="section-container">
         <span className="title-badge">Réalisations</span>
-        <h2 className="section-title">Projets Significatifs</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
