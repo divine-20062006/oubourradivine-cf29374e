@@ -34,27 +34,27 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Utilisation de FormSubmit.co avec la configuration qui garantit que vous recevrez l'email de l'expéditeur
-      const response = await fetch("https://formsubmit.co/oubourra-d@saint-louis29.net", {
+      // Configuration améliorée pour garantir que l'email de l'expéditeur est bien reçu
+      const response = await fetch("https://formsubmit.co/ajax/oubourra-d@saint-louis29.net", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: new URLSearchParams({
+        body: JSON.stringify({
           name: formData.name,
-          email: formData.email, // Envoi explicite de l'email de l'expéditeur
+          email: formData.email,
           message: formData.message,
-          _replyto: formData.email, // Pour garantir que la réponse va au bon email
-          _subject: `Nouveau message de ${formData.name} - Portfolio`,
-          _captcha: "false" // Désactive le captcha pour simplifier l'expérience utilisateur
+          _subject: `Nouveau message de ${formData.name} via Portfolio`,
+          _replyto: formData.email,
+          _autoresponse: "Merci pour votre message. Je vous répondrai dès que possible."
         })
       });
       
       if (response.ok) {
         toast({
           title: "Message envoyé !",
-          description: "Votre message a été envoyé avec succès. Votre email a bien été reçu, merci de m'avoir contacté.",
+          description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
         });
         
         // Réinitialiser le formulaire
@@ -111,6 +111,7 @@ const Contact = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
                 placeholder="votre@email.com"
+                required
               />
             </div>
             
@@ -125,6 +126,7 @@ const Contact = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
                 placeholder="Votre message..."
+                required
               />
             </div>
             
