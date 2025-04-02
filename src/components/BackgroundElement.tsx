@@ -3,41 +3,34 @@ import { useEffect, useState } from "react";
 
 const BackgroundElement = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Préchargement de l'image pour s'assurer qu'elle est disponible
-    const img = new Image();
-    img.src = "/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png";
-    img.onload = () => {
-      setImageLoaded(true);
+    const timer = setTimeout(() => {
       setIsVisible(true);
-    };
-    img.onerror = (e) => {
-      console.error("Erreur de chargement de l'image:", e);
-      // Afficher quand même le contenu même si l'image ne se charge pas
-      setIsVisible(true);
-    };
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
       {/* Image d'arrière-plan principale */}
       <div 
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
           backgroundImage: `url('/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png')`,
-          backgroundSize: "cover"
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
         }}
       >
-        {/* Overlay plus léger pour mieux voir l'image */}
-        <div className="absolute inset-0 bg-[#0d0e17]/30"></div>
+        {/* Overlay très léger pour assurer la lisibilité du texte */}
+        <div className="absolute inset-0 bg-[#0d0e17]/20"></div>
       </div>
       
-      {/* Éléments lumineux qui rappellent l'image - réduits pour mettre en valeur l'image principale */}
-      <div className={`absolute top-20 right-10 w-64 h-64 rounded-full bg-[#0AFFFF]/5 blur-3xl animate-pulse transition-all duration-1000 ${isVisible ? 'opacity-20' : 'opacity-0'}`}></div>
-      <div className={`absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#FF00FF]/5 blur-3xl animate-pulse transition-all duration-1000 delay-700 ${isVisible ? 'opacity-10' : 'opacity-0'}`}></div>
-      <div className={`absolute top-40 left-40 w-60 h-60 rounded-full bg-[#FFFF00]/5 blur-3xl animate-pulse transition-all duration-1000 delay-300 ${isVisible ? 'opacity-10' : 'opacity-0'}`}></div>
+      {/* Éléments lumineux subtils */}
+      <div className={`absolute top-20 right-10 w-64 h-64 rounded-full bg-[#0AFFFF]/5 blur-3xl animate-pulse transition-all duration-1000 ${isVisible ? 'opacity-10' : 'opacity-0'}`}></div>
+      <div className={`absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#FF00FF]/5 blur-3xl animate-pulse transition-all duration-1000 delay-700 ${isVisible ? 'opacity-5' : 'opacity-0'}`}></div>
     </div>
   );
 };
