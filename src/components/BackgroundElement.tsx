@@ -3,9 +3,21 @@ import { useEffect, useState } from "react";
 
 const BackgroundElement = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    // Préchargement de l'image pour s'assurer qu'elle est disponible
+    const img = new Image();
+    img.src = "/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png";
+    img.onload = () => {
+      setImageLoaded(true);
+      setIsVisible(true);
+    };
+    img.onerror = (e) => {
+      console.error("Erreur de chargement de l'image:", e);
+      // Afficher quand même le contenu même si l'image ne se charge pas
+      setIsVisible(true);
+    };
   }, []);
 
   return (
@@ -14,12 +26,12 @@ const BackgroundElement = () => {
       <div 
         className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          backgroundImage: "url('/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png')",
+          backgroundImage: `url('/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png')`,
           backgroundSize: "cover"
         }}
       >
-        {/* Overlay pour assurer la lisibilité du texte - plus léger pour mieux voir l'image */}
-        <div className="absolute inset-0 bg-[#0d0e17]/50"></div>
+        {/* Overlay plus léger pour mieux voir l'image */}
+        <div className="absolute inset-0 bg-[#0d0e17]/30"></div>
       </div>
       
       {/* Éléments lumineux qui rappellent l'image - réduits pour mettre en valeur l'image principale */}
