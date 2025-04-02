@@ -14,7 +14,7 @@ const BackgroundElement = () => {
       <div 
         className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          backgroundImage: "url('/lovable-uploads/ca242fb0-3091-4e71-8b8d-4896fb618601.png')",
+          backgroundImage: "url('/lovable-uploads/d5d0437a-920f-4028-b042-b0d631a552fc.png')",
           backgroundSize: "cover"
         }}
       >
