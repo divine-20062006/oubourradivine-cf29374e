@@ -14,7 +14,7 @@ const BackgroundElement = () => {
 
   return (
     <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-      {/* Image d'arrière-plan principale */}
+      {/* Image d'arrière-plan principale - sans overlay pour une visibilité maximale */}
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
@@ -24,13 +24,9 @@ const BackgroundElement = () => {
           backgroundRepeat: "no-repeat"
         }}
       >
-        {/* Overlay très léger pour assurer la lisibilité du texte */}
-        <div className="absolute inset-0 bg-[#0d0e17]/20"></div>
+        {/* Overlay extrêmement léger uniquement pour améliorer la lisibilité du texte */}
+        <div className="absolute inset-0 bg-[#0d0e17]/5"></div>
       </div>
-      
-      {/* Éléments lumineux subtils */}
-      <div className={`absolute top-20 right-10 w-64 h-64 rounded-full bg-[#0AFFFF]/5 blur-3xl animate-pulse transition-all duration-1000 ${isVisible ? 'opacity-10' : 'opacity-0'}`}></div>
-      <div className={`absolute bottom-10 left-20 w-80 h-80 rounded-full bg-[#FF00FF]/5 blur-3xl animate-pulse transition-all duration-1000 delay-700 ${isVisible ? 'opacity-5' : 'opacity-0'}`}></div>
     </div>
   );
 };
