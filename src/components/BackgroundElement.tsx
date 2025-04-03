@@ -18,7 +18,7 @@ const BackgroundElement = () => {
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          backgroundImage: `url('https://www.effigoglobal.com/wp-content/uploads/2023/03/quick-and-hassle-free-execution-1024x717.jpg')`,
+          backgroundImage: `url('https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/6/7/0/670875a00d_50183450_reseau-informatique-connexion.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
