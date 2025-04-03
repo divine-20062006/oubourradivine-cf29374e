@@ -18,13 +18,13 @@ const BackgroundElement = () => {
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          backgroundImage: `url('/lovable-uploads/ec1c6e15-30aa-48ff-800d-12f51a9bab2e.png')`,
+          backgroundImage: `url('https://www.effigoglobal.com/wp-content/uploads/2023/03/quick-and-hassle-free-execution-1024x717.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}
       >
-        {/* Overlay très léger pour améliorer la lisibilité du texte si nécessaire */}
+        {/* Overlay très léger pour améliorer la lisibilité du texte */}
         <div className="absolute inset-0 bg-black/20"></div>
       </div>
     </div>
