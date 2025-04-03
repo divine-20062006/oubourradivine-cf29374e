@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
-import { downloadFile } from "../utils/downloadUtils";
+import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,15 +17,12 @@ const Header = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    // URL complète vers le fichier CV
-    const fileUrl = `${window.location.origin}/CV_OUBOURRA_Divine.pdf`;
+    // URL du CV partagé
+    const cvUrl = "https://cvdesignr.com/p/672a0d01c4e53";
     const fileName = 'CV_OUBOURRA_Divine.pdf';
     
-    // Ouvrir dans un nouvel onglet d'abord
-    window.open(fileUrl, '_blank');
-    
-    // Puis déclencher le téléchargement
-    downloadFile(fileUrl, fileName);
+    // Utilisez la nouvelle fonction pour télécharger le CV externe
+    downloadExternalFile(cvUrl, fileName);
   };
 
   return (
