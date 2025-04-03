@@ -1,3 +1,4 @@
+
 import { Server, Shield, Network, Database, Cloud, Terminal } from "lucide-react";
 
 const skills = [
@@ -35,7 +36,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section id="competences" className="bg-secondary">
+    <section id="competences">
       <div className="section-container">
         <span className="title-badge">Expertise</span>
         <h2 className="section-title">Compétences Techniques</h2>

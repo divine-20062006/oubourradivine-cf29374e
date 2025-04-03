@@ -1,7 +1,7 @@
 
 const Education = () => {
   return (
-    <section id="formation" className="bg-secondary">
+    <section id="formation">
       <div className="section-container">
         <span className="title-badge">Parcours</span>
         <h2 className="section-title text-[#0AFFFF]">Formation</h2>
