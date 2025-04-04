@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Hero = () => {
@@ -25,9 +26,21 @@ const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
-        <div className={`flex flex-col md:flex-row gap-8 md:gap-12 items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          {/* Contenu textuel - centré */}
-          <div className="w-full text-left space-y-5">
+        <div className={`flex flex-col md:flex-row gap-8 md:gap-12 items-start transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          {/* Photo de profil - positionnée plus en haut à gauche */}
+          <div className="w-full md:w-1/3 flex justify-start">
+            <Avatar className="w-48 h-48 rounded-full border-4 border-[#0AFFFF]/30 shadow-lg shadow-[#0AFFFF]/20 mt-[-30px]">
+              <AvatarImage 
+                src="/lovable-uploads/2aaf47bc-72f5-4c0b-99e5-a5b163901b15.png" 
+                alt="Divine Oubourra" 
+                className="object-cover"
+              />
+              <AvatarFallback className="bg-[#1A1F2C] text-[#0AFFFF] text-2xl">DO</AvatarFallback>
+            </Avatar>
+          </div>
+          
+          {/* Contenu textuel - centré vers la droite */}
+          <div className="w-full md:w-2/3 text-left space-y-5">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <span className="title-badge inline-block mb-2">
                 🚀 Bienvenue sur mon portfolio !

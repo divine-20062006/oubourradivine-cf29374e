@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Paperclip, X } from "lucide-react";
+import { Paperclip, X, FileText } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -59,6 +59,16 @@ const Contact = () => {
 
   const removeAttachment = (index: number) => {
     setAttachments(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const formatFileSize = (sizeInBytes: number): string => {
+    if (sizeInBytes < 1024) {
+      return `${sizeInBytes} B`;
+    } else if (sizeInBytes < 1024 * 1024) {
+      return `${(sizeInBytes / 1024).toFixed(1)} KB`;
+    } else {
+      return `${(sizeInBytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -198,15 +208,15 @@ const Contact = () => {
                 />
               </div>
               
-              {/* Liste des fichiers attachés */}
+              {/* Liste des fichiers attachés avec meilleure présentation */}
               {attachments.length > 0 && (
                 <div className="mt-3 space-y-2">
                   {attachments.map((file, index) => (
                     <div key={index} className="flex items-center justify-between px-3 py-2 bg-[#1A1F2C] rounded-lg border border-[#0AFFFF]/30">
                       <div className="flex items-center gap-2">
-                        <Paperclip className="h-4 w-4 text-[#0AFFFF]" />
+                        <FileText className="h-4 w-4 text-[#0AFFFF]" />
                         <span className="text-sm text-white truncate max-w-[200px]">{file.name}</span>
-                        <span className="text-xs text-gray-400">({(file.size / 1024).toFixed(1)} KB)</span>
+                        <span className="text-xs text-gray-400">({formatFileSize(file.size)})</span>
                       </div>
                       <Button
                         type="button"
