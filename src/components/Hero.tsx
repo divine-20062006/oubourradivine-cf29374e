@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
@@ -25,10 +26,10 @@ const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
-        <div className={`max-w-3xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          {/* Avatar avec la photo */}
-          <div className="flex justify-center mb-6">
-            <Avatar className={`w-36 h-36 border-4 border-[#0AFFFF]/30 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+        <div className={`flex flex-col md:flex-row gap-8 md:gap-12 items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          {/* Avatar avec la photo - à gauche sur grand écran */}
+          <div className={`md:w-1/3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <Avatar className="w-52 h-52 border-4 border-[#0AFFFF]/30 mx-auto">
               <AvatarImage 
                 src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
                 alt="Divine Oubourra" 
@@ -38,32 +39,65 @@ const Hero = () => {
             </Avatar>
           </div>
           
-          <span className={`title-badge transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            Bienvenue sur mon Portfolio
-          </span>
-          <h1 className={`text-5xl sm:text-6xl font-bold mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-[#0AFFFF]`}>
-            OUBOURRA Divine
-          </h1>
-          <p className={`text-xl mb-8 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} text-white font-medium`}>
-            Étudiante passionnée en BTS SIO option SISR, je développe des solutions innovantes pour répondre aux défis technologiques d'aujourd'hui.
-          </p>
-          
-          <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <Button 
-              variant="outline" 
-              className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-white border-white hover:border-[#0AFFFF]"
-              onClick={handleDownloadCV}
-            >
-              <FileDown className="mr-2" /> Télécharger mon CV
-            </Button>
+          {/* Contenu textuel - centré vers la droite */}
+          <div className="md:w-2/3 text-left space-y-5">
+            <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+              <span className="title-badge inline-block mb-2">
+                🚀 Bienvenue sur mon portfolio !
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold mb-2 text-[#0AFFFF]">
+                OUBOURRA Divine
+              </h1>
+              <p className="text-lg mb-4 text-white font-medium">
+                Les défis ? Je les transforme en opportunités.<br />
+                Les problèmes ? Je les résous avec méthode et ambition.
+              </p>
+            </div>
+
+            <div className={`space-y-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div>
+                <h2 className="text-xl font-bold text-[#0AFFFF]">💡 Qui suis-je ?</h2>
+                <p className="text-white">
+                  Je m'appelle Divine Oubourra, étudiante en BTS SIO – option SISR. Passionnée par les systèmes, 
+                  les réseaux et la cybersécurité, je m'épanouis dans la résolution de problèmes complexes 
+                  et la construction d'infrastructures solides et sécurisées.
+                </p>
+              </div>
+              
+              <div>
+                <h2 className="text-xl font-bold text-[#0AFFFF]">🔎 Ma vision de l'informatique ?</h2>
+                <p className="text-white">
+                  Un domaine en perpétuelle évolution où seuls ceux qui osent, apprennent et innovent laissent leur empreinte. 
+                  Chaque ligne de commande, chaque architecture réseau et chaque protocole de sécurité sont des opportunités d'exceller.
+                </p>
+              </div>
+              
+              <div>
+                <h2 className="text-xl font-bold text-[#0AFFFF]">🔥 Mon engagement ?</h2>
+                <p className="text-white">
+                  Ne jamais me contenter du minimum. Chercher, expérimenter, optimiser. 
+                  Parce qu'en informatique, la vraie différence se fait dans les détails.
+                </p>
+              </div>
+            </div>
             
-            <Link to="/contact">
+            <div className={`flex flex-col sm:flex-row items-start gap-4 mt-6 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button 
-                className="rounded-full hover:shadow-lg hover:-translate-y-1 transition-all"
+                variant="outline" 
+                className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-white border-white hover:border-[#0AFFFF]"
+                onClick={handleDownloadCV}
               >
-                Me contacter
+                <FileDown className="mr-2" /> Télécharger mon CV
               </Button>
-            </Link>
+              
+              <Link to="/contact">
+                <Button 
+                  className="rounded-full hover:shadow-lg hover:-translate-y-1 transition-all"
+                >
+                  Me contacter
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
         
