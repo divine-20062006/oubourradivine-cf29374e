@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="w-full md:w-1/3 flex justify-start">
             <Avatar className="w-48 h-48 rounded-full border-4 border-[#0AFFFF]/30 shadow-lg shadow-[#0AFFFF]/20 mt-[-30px]">
               <AvatarImage 
-                src="/lovable-uploads/2aaf47bc-72f5-4c0b-99e5-a5b163901b15.png" 
+                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
                 alt="Divine Oubourra" 
                 className="object-cover"
               />

@@ -49,7 +49,11 @@ const AttachmentInput = ({ attachments, setAttachments }: AttachmentInputProps) 
         return;
       }
       
-      setAttachments(prev => [...prev, ...Array.from(files)]);
+      // Ajout des nouveaux fichiers à la liste
+      const newFiles = Array.from(files);
+      console.log("Fichiers ajoutés:", newFiles.map(f => `${f.name} (${formatFileSize(f.size)})`));
+      
+      setAttachments(prev => [...prev, ...newFiles]);
     }
     
     // Réinitialiser l'input pour permettre de sélectionner le même fichier plusieurs fois
@@ -57,11 +61,13 @@ const AttachmentInput = ({ attachments, setAttachments }: AttachmentInputProps) 
   };
 
   const removeAttachment = (index: number) => {
+    const fileToRemove = attachments[index];
+    console.log("Fichier supprimé:", fileToRemove.name);
     setAttachments(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
-    <div>
+    <div className="w-full">
       <label htmlFor="attachments" className="block text-sm font-medium mb-2 text-[#0AFFFF]">
         Pièces jointes (3 max, 5MB total)
       </label>
@@ -85,12 +91,16 @@ const AttachmentInput = ({ attachments, setAttachments }: AttachmentInputProps) 
       {/* Liste des fichiers attachés avec meilleure présentation */}
       {attachments.length > 0 && (
         <div className="mt-3 space-y-2">
+          <p className="text-sm text-[#0AFFFF]">Fichiers ajoutés ({attachments.length}/3):</p>
           {attachments.map((file, index) => (
-            <div key={index} className="flex items-center justify-between px-3 py-2 bg-[#1A1F2C] rounded-lg border border-[#0AFFFF]/30">
-              <div className="flex items-center gap-2">
-                <FileText className="h-4 w-4 text-[#0AFFFF]" />
-                <span className="text-sm text-white truncate max-w-[200px]">{file.name}</span>
-                <span className="text-xs text-gray-400">({formatFileSize(file.size)})</span>
+            <div 
+              key={`${file.name}-${index}`} 
+              className="flex items-center justify-between px-3 py-2 bg-[#1A1F2C] rounded-lg border border-[#0AFFFF]/30"
+            >
+              <div className="flex items-center gap-2 overflow-hidden">
+                <FileText className="h-4 w-4 flex-shrink-0 text-[#0AFFFF]" />
+                <span className="text-sm text-white truncate max-w-[180px]">{file.name}</span>
+                <span className="text-xs text-gray-400 flex-shrink-0">({formatFileSize(file.size)})</span>
               </div>
               <Button
                 type="button"
@@ -103,6 +113,9 @@ const AttachmentInput = ({ attachments, setAttachments }: AttachmentInputProps) 
               </Button>
             </div>
           ))}
+          <p className="text-xs text-gray-400">
+            Taille totale: {formatFileSize(attachments.reduce((total, file) => total + file.size, 0))}
+          </p>
         </div>
       )}
     </div>

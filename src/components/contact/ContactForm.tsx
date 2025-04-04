@@ -60,7 +60,7 @@ const ContactForm = () => {
         />
       </div>
       
-      {/* Section pièces jointes */}
+      {/* Section pièces jointes améliorée */}
       <AttachmentInput 
         attachments={attachments} 
         setAttachments={setAttachments} 

@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { formatFileSize } from "./AttachmentInput";
 
 interface FormData {
   name: string;
@@ -39,6 +40,15 @@ export const useContactForm = () => {
     }
     
     setIsSubmitting(true);
+    
+    // Afficher les détails des pièces jointes dans la console
+    if (attachments.length > 0) {
+      console.log("Pièces jointes à envoyer:", attachments.map(file => ({
+        nom: file.name,
+        taille: formatFileSize(file.size),
+        type: file.type
+      })));
+    }
     
     try {
       // Préparer les données pour l'envoi

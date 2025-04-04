@@ -34,7 +34,7 @@ const Header = () => {
           <div className="flex items-center">
             <Avatar className="w-12 h-12 border-2 border-[#00FF41]/30 mr-4">
               <AvatarImage 
-                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
+                src="/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png" 
                 alt="Divine Oubourra" 
                 className="object-cover object-top"
               />
