@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,20 +26,8 @@ const Hero = () => {
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
         <div className={`flex flex-col md:flex-row gap-8 md:gap-12 items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          {/* Avatar avec la photo - à gauche sur grand écran */}
-          <div className={`md:w-1/3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-            <Avatar className="w-52 h-52 border-4 border-[#0AFFFF]/30 mx-auto">
-              <AvatarImage 
-                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
-                alt="Divine Oubourra" 
-                className="object-cover object-top"
-              />
-              <AvatarFallback className="bg-primary/10 text-primary font-bold text-xl">DO</AvatarFallback>
-            </Avatar>
-          </div>
-          
-          {/* Contenu textuel - centré vers la droite */}
-          <div className="md:w-2/3 text-left space-y-5">
+          {/* Contenu textuel - centré */}
+          <div className="w-full text-left space-y-5">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <span className="title-badge inline-block mb-2">
                 🚀 Bienvenue sur mon portfolio !
