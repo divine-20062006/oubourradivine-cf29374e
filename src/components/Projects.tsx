@@ -2,13 +2,11 @@
 const projects = [
   {
     title: "SALAC - Résidence Coulomb",
-    description: "Conception et déploiement d'une infrastructure réseau pour une résidence étudiante, incluant la configuration du système de sécurité et d'accès internet.",
     tags: ["Infrastructure", "Réseau", "Sécurité"],
     image: "/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png"
   },
   {
     title: "SALAC - Système de location",
-    description: "Développement d'une plateforme de gestion pour la location d'appartements et de chambres étudiantes, incluant un système de réservation en ligne.",
     tags: ["Gestion locative", "Web", "Base de données"],
     image: "/lovable-uploads/2aaf47bc-72f5-4c0b-99e5-a5b163901b15.png"
   }
@@ -40,7 +38,6 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
                     <span

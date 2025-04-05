@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Hero = () => {
@@ -26,21 +25,20 @@ const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
-        <div className={`flex flex-col md:flex-row gap-8 md:gap-12 items-start transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          {/* Photo de profil - positionnée plus en haut à gauche */}
-          <div className="w-full md:w-1/3 flex justify-start">
-            <Avatar className="w-48 h-48 rounded-full border-4 border-[#0AFFFF]/30 shadow-lg shadow-[#0AFFFF]/20 mt-[-30px]">
-              <AvatarImage 
-                src="/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png" 
+        <div className={`flex flex-col items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          {/* Photo de profil - centrée et plus grande */}
+          <div className="w-full flex justify-center mb-8">
+            <div className="w-64 h-64 rounded-full border-4 border-[#0AFFFF]/30 shadow-lg shadow-[#0AFFFF]/20 overflow-hidden">
+              <img 
+                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
                 alt="Divine Oubourra" 
-                className="object-cover"
+                className="w-full h-full object-cover"
               />
-              <AvatarFallback className="bg-[#1A1F2C] text-[#0AFFFF] text-2xl">DO</AvatarFallback>
-            </Avatar>
+            </div>
           </div>
           
-          {/* Contenu textuel - centré vers la droite */}
-          <div className="w-full md:w-2/3 text-left space-y-5">
+          {/* Contenu textuel - en dessous de la photo */}
+          <div className="w-full text-center space-y-5">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <span className="title-badge inline-block mb-2">
                 Bienvenue sur mon portfolio !
@@ -81,7 +79,7 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className={`flex flex-col sm:flex-row items-start gap-4 mt-6 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button 
                 variant="outline" 
                 className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-white border-white hover:border-[#0AFFFF]"

@@ -26,46 +26,49 @@ const Header = () => {
     downloadExternalFile(cvUrl, fileName);
   };
 
+  const activeLinkClass = "text-[#00FF41] font-bold";
+  const normalLinkClass = "hover:text-[#00FF41] transition-colors text-white";
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#1A1F2C]/80 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
       <div className="container mx-auto py-4 px-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center">
-            {/* Photo removed from here */}
+            {/* Espace pour le logo ou autre élément - vide maintenant */}
           </div>
           <div className="flex items-center gap-8">
             <div className="flex gap-8">
               <Link 
                 to="/" 
-                className={`hover:text-[#00FF41] transition-colors text-white flex items-center gap-2 ${location.pathname === '/' ? 'text-[#00FF41]' : ''}`}
+                className={`flex items-center gap-2 ${location.pathname === '/' ? activeLinkClass : normalLinkClass}`}
               >
                 <Home className="w-4 h-4" />
                 Accueil
               </Link>
               <Link 
                 to="/competences" 
-                className={`hover:text-[#00FF41] transition-colors text-white flex items-center gap-2 ${location.pathname === '/competences' ? 'text-[#00FF41]' : ''}`}
+                className={`flex items-center gap-2 ${location.pathname === '/competences' ? activeLinkClass : normalLinkClass}`}
               >
                 <Code className="w-4 h-4" />
                 Compétences
               </Link>
               <Link 
                 to="/projets" 
-                className={`hover:text-[#00FF41] transition-colors text-white flex items-center gap-2 ${location.pathname === '/projets' ? 'text-[#00FF41]' : ''}`}
+                className={`flex items-center gap-2 ${location.pathname === '/projets' ? activeLinkClass : normalLinkClass}`}
               >
                 <FolderGit2 className="w-4 h-4" />
                 Projets
               </Link>
               <Link 
                 to="/formation" 
-                className={`hover:text-[#00FF41] transition-colors text-white flex items-center gap-2 ${location.pathname === '/formation' ? 'text-[#00FF41]' : ''}`}
+                className={`flex items-center gap-2 ${location.pathname === '/formation' ? activeLinkClass : normalLinkClass}`}
               >
                 <GraduationCap className="w-4 h-4" />
                 Formation
               </Link>
               <Link 
                 to="/contact" 
-                className={`hover:text-[#00FF41] transition-colors text-white flex items-center gap-2 ${location.pathname === '/contact' ? 'text-[#00FF41]' : ''}`}
+                className={`flex items-center gap-2 ${location.pathname === '/contact' ? activeLinkClass : normalLinkClass}`}
               >
                 <Mail className="w-4 h-4" />
                 Contact
