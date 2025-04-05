@@ -18,7 +18,7 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2 text-[#0AFFFF]">
-          Nom complet
+          Nom complet <span className="text-red-400">*</span>
         </label>
         <input
           type="text"
@@ -27,12 +27,13 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
           placeholder="Votre nom"
+          required
         />
       </div>
       
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2 text-[#0AFFFF]">
-          Email
+          Email <span className="text-red-400">*</span>
         </label>
         <input
           type="email"
@@ -47,7 +48,7 @@ const ContactForm = () => {
       
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2 text-[#0AFFFF]">
-          Message
+          Message <span className="text-red-400">*</span>
         </label>
         <textarea
           id="message"
@@ -73,6 +74,12 @@ const ContactForm = () => {
       >
         {isSubmitting ? "Envoi en cours..." : "Envoyer"}
       </button>
+
+      {/* Note informative pour FormSubmit */}
+      <p className="text-xs text-white/60 text-center mt-4">
+        Utilisant FormSubmit pour la gestion des emails. Lors de votre premier envoi,
+        confirmez l'activation du service via l'email qu'ils vous enverront.
+      </p>
     </form>
   );
 };

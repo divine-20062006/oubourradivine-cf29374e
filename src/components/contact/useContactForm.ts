@@ -57,20 +57,33 @@ export const useContactForm = () => {
       formDataToSend.append("email", formData.email);
       formDataToSend.append("message", formData.message);
       
-      // Ajouter des champs spécifiques à FormSubmit pour une meilleure configuration
-      formDataToSend.append("_subject", `Nouveau message de ${formData.name} via Portfolio`);
+      // Ajouter des détails explicites d'expéditeur pour une meilleure identification
+      const senderInfo = `Nouveau message de ${formData.name} (${formData.email}) via Portfolio`;
+      formDataToSend.append("_subject", senderInfo);
       formDataToSend.append("_replyto", formData.email);
-      formDataToSend.append("_captcha", "false"); // Désactiver le captcha pour les tests
-      formDataToSend.append("_template", "table"); // Utiliser le template table pour un meilleur formatage
+      
+      // Configuration FormSubmit
+      formDataToSend.append("_captcha", "false"); 
+      formDataToSend.append("_template", "table");
       formDataToSend.append("_autoresponse", "Merci pour votre message. Je vous répondrai dès que possible.");
       
-      // Ajouter les pièces jointes
+      // Ajouter le contenu du message avec des informations claires
+      const enhancedMessage = `
+Expéditeur: ${formData.name}
+Email: ${formData.email}
+---
+${formData.message}
+`;
+      formDataToSend.append("message", enhancedMessage);
+      
+      // Ajouter les pièces jointes avec des noms explicites
       attachments.forEach((file, index) => {
-        formDataToSend.append(`attachment${index + 1}`, file);
+        // Utiliser un nom qui préserve l'extension du fichier original
+        const fileName = `piece_jointe_${index + 1}_${file.name}`;
+        formDataToSend.append(`attachment${index + 1}`, file, fileName);
       });
       
-      // Utilisez l'URL correcte de FormSubmit
-      // Remplacez l'email par votre email réel (celui que vous avez activé sur FormSubmit)
+      // Utilisez l'URL de FormSubmit avec le mode ajax pour obtenir une réponse JSON
       const response = await fetch("https://formsubmit.co/ajax/oubourra-d@saint-louis29.net", {
         method: "POST",
         body: formDataToSend,
