@@ -56,8 +56,12 @@ export const useContactForm = () => {
       formDataToSend.append("name", formData.name);
       formDataToSend.append("email", formData.email);
       formDataToSend.append("message", formData.message);
+      
+      // Ajouter des champs spécifiques à FormSubmit pour une meilleure configuration
       formDataToSend.append("_subject", `Nouveau message de ${formData.name} via Portfolio`);
       formDataToSend.append("_replyto", formData.email);
+      formDataToSend.append("_captcha", "false"); // Désactiver le captcha pour les tests
+      formDataToSend.append("_template", "table"); // Utiliser le template table pour un meilleur formatage
       formDataToSend.append("_autoresponse", "Merci pour votre message. Je vous répondrai dès que possible.");
       
       // Ajouter les pièces jointes
@@ -65,13 +69,16 @@ export const useContactForm = () => {
         formDataToSend.append(`attachment${index + 1}`, file);
       });
       
-      // Utiliser FormSubmit pour envoyer l'email avec pièces jointes
-      const response = await fetch("https://formsubmit.co/oubourra-d@saint-louis29.net", {
+      // Utilisez l'URL correcte de FormSubmit
+      // Remplacez l'email par votre email réel (celui que vous avez activé sur FormSubmit)
+      const response = await fetch("https://formsubmit.co/ajax/oubourra-d@saint-louis29.net", {
         method: "POST",
         body: formDataToSend,
       });
       
-      if (response.ok) {
+      const data = await response.json();
+      
+      if (response.ok && data.success === true) {
         toast({
           title: "Message envoyé !",
           description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
@@ -85,7 +92,7 @@ export const useContactForm = () => {
         });
         setAttachments([]);
       } else {
-        throw new Error("Échec de l'envoi du formulaire");
+        throw new Error(data.message || "Échec de l'envoi du formulaire");
       }
     } catch (error) {
       toast({
