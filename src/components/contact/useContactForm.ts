@@ -91,7 +91,8 @@ ${formData.message}
       
       const data = await response.json();
       
-      if (response.ok && data.success === true) {
+      if (response.ok) {
+        // Si la réponse est OK, c'est un succès même si le message contient "The form was submitted successfully"
         toast({
           title: "Message envoyé !",
           description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
@@ -108,12 +109,28 @@ ${formData.message}
         throw new Error(data.message || "Échec de l'envoi du formulaire");
       }
     } catch (error) {
-      toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
-        variant: "destructive"
-      });
-      console.error("Erreur d'envoi du formulaire:", error);
+      // Ne pas traiter comme une erreur si le message indique que le formulaire a été soumis avec succès
+      if (error instanceof Error && error.message.includes("The form was submitted successfully")) {
+        toast({
+          title: "Message envoyé !",
+          description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
+        });
+        
+        // Réinitialiser le formulaire
+        setFormData({
+          name: "",
+          email: "",
+          message: ""
+        });
+        setAttachments([]);
+      } else {
+        toast({
+          title: "Erreur",
+          description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+          variant: "destructive"
+        });
+        console.error("Erreur d'envoi du formulaire:", error);
+      }
     } finally {
       setIsSubmitting(false);
     }
