@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FileDown, Home, Code, FolderGit2, GraduationCap, Mail } from "lucide-react";
 import { Button } from "./ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Header = () => {
@@ -32,14 +31,7 @@ const Header = () => {
       <div className="container mx-auto py-4 px-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center">
-            <Avatar className="w-12 h-12 border-2 border-[#00FF41]/30 mr-4">
-              <AvatarImage 
-                src="/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png" 
-                alt="Divine Oubourra" 
-                className="object-cover object-top"
-              />
-              <AvatarFallback className="bg-primary/10 text-primary font-bold text-xl">DO</AvatarFallback>
-            </Avatar>
+            {/* Photo removed from here */}
           </div>
           <div className="flex items-center gap-8">
             <div className="flex gap-8">
