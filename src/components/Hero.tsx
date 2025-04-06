@@ -40,9 +40,6 @@ const Hero = () => {
           {/* Contenu textuel - en dessous de la photo */}
           <div className="w-full text-center space-y-5">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              <span className="title-badge inline-block mb-2">
-                Bienvenue sur mon portfolio !
-              </span>
               <h1 className="text-4xl sm:text-5xl font-bold mb-2 text-[#0AFFFF]">
                 Bienvenue sur portfolio !
               </h1>

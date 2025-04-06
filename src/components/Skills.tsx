@@ -45,12 +45,12 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow animate-fade-up"
+              className="bg-[#1A1F2C] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-up border border-[#0AFFFF]/20"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <skill.icon className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
-              <p className="text-gray-600">{skill.description}</p>
+              <skill.icon className="w-10 h-10 text-[#0AFFFF] mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">{skill.title}</h3>
+              <p className="text-gray-300">{skill.description}</p>
             </div>
           ))}
         </div>
