@@ -1,17 +1,14 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import AttachmentInput from "./AttachmentInput";
 import { useContactForm } from "./useContactForm";
 
 const ContactForm = () => {
   const { 
     formData, 
-    attachments, 
     isSubmitting, 
     handleChange, 
-    handleSubmit, 
-    setAttachments 
+    handleSubmit
   } = useContactForm();
 
   return (
@@ -60,12 +57,6 @@ const ContactForm = () => {
           required
         />
       </div>
-      
-      {/* Section pièces jointes améliorée */}
-      <AttachmentInput 
-        attachments={attachments} 
-        setAttachments={setAttachments} 
-      />
       
       <button
         type="submit"

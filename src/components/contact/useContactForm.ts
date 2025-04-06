@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { formatFileSize } from "./AttachmentInput";
 
 interface FormData {
   name: string;
@@ -12,7 +11,6 @@ interface FormData {
 export const useContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [attachments, setAttachments] = useState<File[]>([]);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -41,15 +39,6 @@ export const useContactForm = () => {
     
     setIsSubmitting(true);
     
-    // Afficher les détails des pièces jointes dans la console
-    if (attachments.length > 0) {
-      console.log("Pièces jointes à envoyer:", attachments.map(file => ({
-        nom: file.name,
-        taille: formatFileSize(file.size),
-        type: file.type
-      })));
-    }
-    
     try {
       // Préparer les données pour l'envoi
       const formDataToSend = new FormData();
@@ -76,13 +65,6 @@ ${formData.message}
 `;
       formDataToSend.append("message", enhancedMessage);
       
-      // Ajouter les pièces jointes avec des noms explicites
-      attachments.forEach((file, index) => {
-        // Utiliser un nom qui préserve l'extension du fichier original
-        const fileName = `piece_jointe_${index + 1}_${file.name}`;
-        formDataToSend.append(`attachment${index + 1}`, file, fileName);
-      });
-      
       // Utilisez l'URL de FormSubmit avec le mode ajax pour obtenir une réponse JSON
       const response = await fetch("https://formsubmit.co/ajax/oubourra-d@saint-louis29.net", {
         method: "POST",
@@ -104,7 +86,6 @@ ${formData.message}
           email: "",
           message: ""
         });
-        setAttachments([]);
       } else {
         throw new Error(data.message || "Échec de l'envoi du formulaire");
       }
@@ -122,7 +103,6 @@ ${formData.message}
           email: "",
           message: ""
         });
-        setAttachments([]);
       } else {
         toast({
           title: "Erreur",
@@ -138,10 +118,8 @@ ${formData.message}
 
   return {
     formData,
-    attachments,
     isSubmitting,
     handleChange,
-    handleSubmit,
-    setAttachments
+    handleSubmit
   };
 };
