@@ -38,16 +38,6 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-secondary rounded-full text-sm font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
