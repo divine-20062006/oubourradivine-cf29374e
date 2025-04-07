@@ -4,10 +4,9 @@ const Education = () => {
     <section id="formation">
       <div className="section-container">
         <span className="title-badge">Parcours</span>
-        <h2 className="section-title text-[#0AFFFF]">Formation</h2>
+        <h2 className="section-title text-[#0AFFFF] text-center">Formation</h2>
         
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-xl font-medium text-[#0AFFFF] text-center mb-6">Me Contacter</h3>
           <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up">
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-2 text-[#0AFFFF]">BTS SIO option SISR</h3>

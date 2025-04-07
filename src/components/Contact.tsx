@@ -6,7 +6,7 @@ const Contact = () => {
     <section id="contact">
       <div className="section-container">
         <span className="title-badge">Contact</span>
-        <h2 className="section-title text-[#0AFFFF]">Me Contacter</h2>
+        <h2 className="section-title text-[#0AFFFF] text-center">Me Contacter</h2>
         
         <div className="max-w-xl mx-auto">
           <p className="text-white/80 text-center mb-8">
@@ -14,7 +14,6 @@ const Contact = () => {
             N'hésitez pas à me contacter via ce formulaire. 
             Je vous répondrai dans les plus brefs délais.
           </p>
-          <h3 className="text-xl font-medium text-[#0AFFFF] text-center mb-6">Me Contacter</h3>
           <ContactForm />
         </div>
       </div>
