@@ -14,6 +14,7 @@ const Contact = () => {
             N'hésitez pas à me contacter via ce formulaire. 
             Je vous répondrai dans les plus brefs délais.
           </p>
+          <h3 className="text-xl font-medium text-[#0AFFFF] text-center mb-6">Me Contacter</h3>
           <ContactForm />
         </div>
       </div>
