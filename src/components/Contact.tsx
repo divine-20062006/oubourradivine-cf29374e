@@ -62,16 +62,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="glass-card rounded-2xl p-6">
-              <div className="text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00FF41]/20 text-[#00FF41] text-sm font-medium mb-2">
-                  <div className="w-2 h-2 bg-[#00FF41] rounded-full animate-pulse"></div>
-                  Disponible pour de nouveaux projets
-                </div>
-                <p className="text-white/60 text-sm">Temps de réponse moyen : 24h</p>
-              </div>
-            </div>
           </div>
           
           {/* Contact Form */}

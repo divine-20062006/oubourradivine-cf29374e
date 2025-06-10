@@ -13,7 +13,7 @@ const Education = () => {
               <p className="text-[#D946EF]">2024 - 2026</p>
               <div className="mt-4">
                 <h4 className="font-medium mb-2 text-[#F97316]">Compétences acquises :</h4>
-                <ul className="list-disc list-inside text-foreground space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2">
                   <li>Administration des systèmes et réseaux</li>
                   <li>Cybersécurité et protection des données</li>
                   <li>Virtualisation et solutions cloud</li>

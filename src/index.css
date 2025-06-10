@@ -35,6 +35,19 @@
     @apply bg-[#1A1F2C]/90 backdrop-blur-sm border border-[#0AFFFF]/40;
   }
   
+  /* Improved text visibility */
+  .text-visible {
+    @apply text-white;
+  }
+  
+  .text-visible-secondary {
+    @apply text-white/90;
+  }
+  
+  .text-visible-muted {
+    @apply text-white/80;
+  }
+  
   /* Add cyber terminal effect */
   .cyber-terminal {
     @apply bg-[#121212] border border-[#00FF41]/30 text-[#00FF41] font-mono;

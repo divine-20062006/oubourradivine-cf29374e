@@ -66,11 +66,6 @@ const ContactForm = () => {
         {isSubmitting ? "Envoi en cours..." : "Envoyer"}
       </button>
 
-      {/* Note informative pour FormSubmit */}
-      <p className="text-xs text-white/60 text-center mt-4">
-        Utilisant FormSubmit pour la gestion des emails. Lors de votre premier envoi,
-        confirmez l'activation du service via l'email qu'ils vous enverront.
-      </p>
     </form>
   );
 };

@@ -50,7 +50,7 @@ const Skills = () => {
             >
               <skill.icon className="w-10 h-10 text-[#0AFFFF] mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-white">{skill.title}</h3>
-              <p className="text-gray-300">{skill.description}</p>
+              <p className="text-white/80">{skill.description}</p>
             </div>
           ))}
         </div>

@@ -22,7 +22,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow animate-fade-up"
+              className="group glass-card rounded-xl overflow-hidden hover:shadow-lg transition-shadow animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {project.image && (
@@ -35,7 +35,7 @@ const Projects = () => {
                 </div>
               )}
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#0AFFFF] transition-colors">
                   {project.title}
                 </h3>
               </div>
