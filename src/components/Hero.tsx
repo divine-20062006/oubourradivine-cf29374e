@@ -35,11 +35,11 @@ const Hero = () => {
                 Étudiante BTS SIO - SISR
               </div>
               
-              <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
+              <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-[#FF6B6B]">
                 Divine <span className="text-[#0AFFFF]">Oubourra</span>
               </h1>
               
-              <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-xl text-[#FFE66D] mb-8 leading-relaxed">
                 Spécialisée en <span className="text-[#00FF41]">cybersécurité</span> et <span className="text-[#0AFFFF]">infrastructure réseau</span>. 
                 Je transforme les défis techniques en solutions innovantes.
               </p>
@@ -49,15 +49,15 @@ const Hero = () => {
             <div className={`grid grid-cols-3 gap-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="glass-card p-4 rounded-xl text-center">
                 <div className="text-2xl font-bold text-[#0AFFFF]">2+</div>
-                <div className="text-sm text-white/70">Années d'étude</div>
+                <div className="text-sm text-[#FFE66D]">Années d'étude</div>
               </div>
               <div className="glass-card p-4 rounded-xl text-center">
                 <div className="text-2xl font-bold text-[#00FF41]">10+</div>
-                <div className="text-sm text-white/70">Projets réalisés</div>
+                <div className="text-sm text-[#FFE66D]">Projets réalisés</div>
               </div>
               <div className="glass-card p-4 rounded-xl text-center">
                 <div className="text-2xl font-bold text-[#D946EF]">100%</div>
-                <div className="text-sm text-white/70">Motivation</div>
+                <div className="text-sm text-[#FFE66D]">Motivation</div>
               </div>
             </div>
 
@@ -77,7 +77,7 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button 
                 variant="outline" 
-                className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-white border-white hover:border-[#0AFFFF]"
+                className="rounded-full hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:-translate-y-1 transition-all text-[#FFE66D] border-[#FFE66D] hover:border-[#0AFFFF]"
                 onClick={handleDownloadCV}
               >
                 <FileDown className="mr-2" /> Télécharger mon CV
@@ -96,7 +96,7 @@ const Hero = () => {
           {/* Photo de profil moderne */}
           <div className={`flex justify-center lg:justify-end transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="relative">
-              <div className="w-80 h-80 rounded-2xl border-4 border-[#0AFFFF]/30 shadow-2xl shadow-[#0AFFFF]/20 overflow-hidden bg-gradient-to-br from-[#0AFFFF]/10 to-[#00FF41]/10 backdrop-blur-sm">
+              <div className="w-64 h-64 rounded-2xl border-4 border-[#0AFFFF]/30 shadow-2xl shadow-[#0AFFFF]/20 overflow-hidden bg-gradient-to-br from-[#0AFFFF]/10 to-[#00FF41]/10 backdrop-blur-sm">
                 <img 
                   src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
                   alt="Divine Oubourra" 
