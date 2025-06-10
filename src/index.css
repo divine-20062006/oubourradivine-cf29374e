@@ -32,7 +32,7 @@
   
   /* Add glass effect for card backgrounds - cyber theme */
   .glass-card {
-    @apply bg-[#1A1F2C]/80 backdrop-blur-sm border border-[#0AFFFF]/20;
+    @apply bg-[#1A1F2C]/90 backdrop-blur-sm border border-[#0AFFFF]/40;
   }
   
   /* Add cyber terminal effect */

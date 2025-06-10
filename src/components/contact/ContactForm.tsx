@@ -22,7 +22,7 @@ const ContactForm = () => {
           id="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
+          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/60 bg-[#1A1F2C]/90 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/70 focus:border-[#0AFFFF] transition-colors"
           placeholder="Votre nom"
           required
         />
@@ -37,7 +37,7 @@ const ContactForm = () => {
           id="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
+          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/60 bg-[#1A1F2C]/90 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/70 focus:border-[#0AFFFF] transition-colors"
           placeholder="votre@email.com"
           required
         />
@@ -52,7 +52,7 @@ const ContactForm = () => {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/50 bg-[#1A1F2C]/80 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/50 focus:border-[#0AFFFF] transition-colors"
+          className="w-full px-4 py-3 rounded-lg border border-[#0AFFFF]/60 bg-[#1A1F2C]/90 text-white focus:outline-none focus:ring-2 focus:ring-[#0AFFFF]/70 focus:border-[#0AFFFF] transition-colors"
           placeholder="Votre message..."
           required
         />
