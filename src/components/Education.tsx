@@ -3,7 +3,6 @@ const Education = () => {
   return (
     <section id="formation">
       <div className="section-container">
-        <span className="title-badge">Parcours</span>
         <h2 className="section-title text-[#0AFFFF] text-center">Formation</h2>
         
         <div className="max-w-3xl mx-auto">
