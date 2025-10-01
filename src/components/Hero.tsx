@@ -25,8 +25,20 @@ const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
-        <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          
+        {/* Photo de profil en haut à droite */}
+        <div className={`absolute top-4 right-4 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div className="relative">
+            <div className="w-24 h-24 rounded-full border-2 border-[#0AFFFF]/30 shadow-xl shadow-[#0AFFFF]/20 overflow-hidden bg-gradient-to-br from-[#0AFFFF]/10 to-[#00FF41]/10">
+              <img 
+                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
+                alt="Divine Oubourra" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className={`max-w-4xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           {/* Contenu principal */}
           <div className="space-y-8">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
@@ -43,22 +55,6 @@ const Hero = () => {
                 Spécialisée en <span className="text-[#0AFFFF]">cybersécurité</span> et <span className="text-[#0AFFFF]">infrastructure réseau</span>.
                 Je transforme les défis techniques en solutions innovantes.
               </p>
-            </div>
-
-            {/* Stats modernes */}
-            <div className={`grid grid-cols-3 gap-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="glass-card p-4 rounded-xl text-center">
-                <div className="text-2xl font-bold text-[#0AFFFF]">2+</div>
-                <div className="text-sm text-white/80">Années d'étude</div>
-              </div>
-              <div className="glass-card p-4 rounded-xl text-center">
-                <div className="text-2xl font-bold text-[#00FF41]">10+</div>
-                <div className="text-sm text-white/80">Projets réalisés</div>
-              </div>
-              <div className="glass-card p-4 rounded-xl text-center">
-                <div className="text-2xl font-bold text-[#D946EF]">100%</div>
-                <div className="text-sm text-white/80">Motivation</div>
-              </div>
             </div>
 
             {/* Tags de compétences */}
@@ -90,23 +86,6 @@ const Hero = () => {
                   Me contacter
                 </Button>
               </Link>
-            </div>
-          </div>
-
-          {/* Photo de profil moderne */}
-          <div className={`flex justify-center lg:justify-end transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="relative">
-              <div className="w-64 h-64 rounded-2xl border-4 border-[#0AFFFF]/30 shadow-2xl shadow-[#0AFFFF]/20 overflow-hidden bg-gradient-to-br from-[#0AFFFF]/10 to-[#00FF41]/10 backdrop-blur-sm">
-                <img 
-                  src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
-                  alt="Divine Oubourra" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Éléments décoratifs flottants */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-[#00FF41] rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-[#D946EF] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
