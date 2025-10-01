@@ -23,12 +23,26 @@ const Education = () => {
               </div>
             </div>
             
-            <div>
-              <h4 className="font-medium mb-2 text-[#F97316]">Certifications en cours :</h4>
+            <div className="mb-8">
+              <h4 className="font-medium mb-2 text-[#F97316]">Certifications :</h4>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-[#0AFFFF]/20 text-[#0AFFFF] rounded-full border border-[#0AFFFF]/50">
                   MOOC ANSSI
                 </span>
+                <span className="px-4 py-2 bg-[#0AFFFF]/20 text-[#0AFFFF] rounded-full border border-[#0AFFFF]/50">
+                  MOOC RGPD
+                </span>
+                <span className="px-4 py-2 bg-[#0AFFFF]/20 text-[#0AFFFF] rounded-full border border-[#0AFFFF]/50">
+                  PIX
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-medium mb-2 text-[#F97316]">Stage :</h4>
+              <div className="glass-card bg-[#1A1F2C]/50 p-4 rounded-lg border border-[#0AFFFF]/20">
+                <h5 className="text-lg font-semibold text-white mb-1">SC MICRO</h5>
+                <p className="text-[#D946EF] text-sm">25 Mai - 26 Juin 2025</p>
               </div>
             </div>
           </div>
