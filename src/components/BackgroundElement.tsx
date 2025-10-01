@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from "react";
+import networkBackground from "@/assets/network-background.jpg";
 
 const BackgroundElement = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +18,7 @@ const BackgroundElement = () => {
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          backgroundImage: `url('https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/6/7/0/670875a00d_50183450_reseau-informatique-connexion.jpg')`,
+          backgroundImage: `url(${networkBackground})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
