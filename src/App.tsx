@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Home from "./pages/Home";
 import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import ExperiencePage from "./pages/ExperiencePage";
 import EducationPage from "./pages/EducationPage";
 import ContactPage from "./pages/ContactPage";
 import Header from "./components/Header";
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/" element={<Home />} />
               <Route path="/competences" element={<SkillsPage />} />
               <Route path="/projets" element={<ProjectsPage />} />
+              <Route path="/experiences" element={<ExperiencePage />} />
               <Route path="/formation" element={<EducationPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

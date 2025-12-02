@@ -9,6 +9,11 @@ const projects = [
     title: "SALAC - Système de location",
     tags: ["Gestion locative", "Web", "Base de données"],
     image: "/lovable-uploads/2aaf47bc-72f5-4c0b-99e5-a5b163901b15.png"
+  },
+  {
+    title: "Projet scolaire – Gestion d'un parc informatique GLPI",
+    tags: ["GLPI", "Gestion de parc", "IT Asset Management"],
+    image: "/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png"
   }
 ];
 
