@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FileDown, Home, Code, FolderGit2, GraduationCap, Mail } from "lucide-react";
+import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
@@ -58,6 +58,13 @@ const Header = () => {
               >
                 <FolderGit2 className="w-4 h-4" />
                 Projets
+              </Link>
+              <Link 
+                to="/experiences" 
+                className={`flex items-center gap-2 ${location.pathname === '/experiences' ? activeLinkClass : normalLinkClass}`}
+              >
+                <Briefcase className="w-4 h-4" />
+                Expériences
               </Link>
               <Link 
                 to="/formation" 
