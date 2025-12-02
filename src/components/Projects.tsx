@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Projet scolaire – Gestion d'un parc informatique GLPI",
     tags: ["GLPI", "Gestion de parc", "IT Asset Management"],
-    image: "/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png"
+    image: "/lovable-uploads/glpi-project-professional.jpg"
   }
 ];
 

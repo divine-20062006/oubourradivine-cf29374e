@@ -43,7 +43,7 @@ const Hero = () => {
           <div className="space-y-8">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
               <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
-                Divine <span className="text-[#60A5FA]">Oubourra</span>
+                Divine Oubourra
               </h1>
               
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
