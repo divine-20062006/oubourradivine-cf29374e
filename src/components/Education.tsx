@@ -36,14 +36,6 @@ const Education = () => {
                 </span>
               </div>
             </div>
-
-            <div>
-              <h4 className="font-medium mb-2 text-[#F97316]">Stage :</h4>
-              <div className="glass-card bg-[#1A1F2C]/50 p-4 rounded-lg border border-[#0AFFFF]/20">
-                <h5 className="text-lg font-semibold text-white mb-1">SC MICRO</h5>
-                <p className="text-[#D946EF] text-sm">25 Mai - 26 Juin 2025</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
