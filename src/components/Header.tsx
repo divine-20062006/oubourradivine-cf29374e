@@ -57,7 +57,7 @@ const Header = () => {
 
             {/* Mobile Dropdown Menu - Left aligned */}
             {mobileMenuOpen && (
-              <div className="absolute left-0 top-full mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-xl animate-fade-in z-50">
+              <div className="absolute left-0 top-full mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-xl animate-slide-in-left z-50">
                 <div className="flex flex-col py-2">
                   {navLinks.map((link) => (
                     <Link
