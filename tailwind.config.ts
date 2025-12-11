@@ -53,6 +53,16 @@ export default {
             opacity: "1",
           },
         },
+        "slide-in-left": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
         "glow-pulse": {
           "0%, 100%": {
             boxShadow: "0 0 5px #0AFFFF, 0 0 10px #0AFFFF, 0 0 15px #0AFFFF",
@@ -65,6 +75,7 @@ export default {
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
+        "slide-in-left": "slide-in-left 0.3s ease-out",
         "glow-pulse": "glow-pulse 2s infinite",
       },
     },
