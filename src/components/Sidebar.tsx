@@ -30,13 +30,15 @@ const Sidebar = () => {
       }`}
     >
       {/* Logo */}
-      <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
-        <span className={`text-cyan-400 font-bold text-lg transition-opacity ${collapsed ? "opacity-0 w-0" : "opacity-100"}`}>
-          D.O
-        </span>
+      <div className={`p-4 border-b border-slate-700/50 flex items-center ${collapsed ? "justify-center" : "justify-between"}`}>
+        {!collapsed && (
+          <span className="text-cyan-400 font-bold text-lg">
+            D.O
+          </span>
+        )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-1.5 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800"
+          className="p-1.5 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800 flex-shrink-0"
           aria-label={collapsed ? "Ouvrir le menu" : "Fermer le menu"}
         >
           {collapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
