@@ -45,9 +45,52 @@ const Header = () => {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-700/50" : "bg-slate-900/80 backdrop-blur-sm"}`}>
       <div className="container mx-auto py-3 px-4">
         <nav className="flex items-center justify-between">
-          {/* Logo ou espace vide */}
-          <div className="flex items-center">
-            <span className="text-cyan-400 font-bold text-lg hidden sm:block">D.O</span>
+          {/* Mobile Menu Button - Left */}
+          <div className="relative lg:hidden">
+            <button
+              className="p-2 text-slate-200 hover:text-cyan-400 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            {/* Mobile Dropdown Menu - Left aligned */}
+            {mobileMenuOpen && (
+              <div className="absolute left-0 top-full mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-xl animate-fade-in z-50">
+                <div className="flex flex-col py-2">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      className={`flex items-center gap-3 py-3 px-4 text-sm ${
+                        location.pathname === link.to 
+                          ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                          : "text-slate-200 hover:bg-slate-800 hover:text-cyan-300"
+                      } transition-all`}
+                    >
+                      <link.icon className="w-4 h-4" />
+                      {link.label}
+                    </Link>
+                  ))}
+                  <div className="border-t border-slate-700 mt-2 pt-2 px-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="w-full rounded-full bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all"
+                      onClick={handleDownloadCV}
+                    >
+                      <FileDown className="mr-2 h-4 w-4" /> Télécharger CV
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Logo - Center on mobile, left on desktop */}
+          <div className="flex items-center lg:order-first">
+            <span className="text-cyan-400 font-bold text-lg">D.O</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -74,45 +117,9 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-slate-200 hover:text-cyan-400 transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Empty space for mobile layout balance */}
+          <div className="w-10 lg:hidden"></div>
         </nav>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-slate-700/50 pt-4 animate-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`flex items-center gap-3 py-2 px-3 rounded-lg text-sm ${
-                    location.pathname === link.to 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
-                      : "text-slate-200 hover:bg-slate-800 hover:text-cyan-300"
-                  } transition-all`}
-                >
-                  <link.icon className="w-4 h-4" />
-                  {link.label}
-                </Link>
-              ))}
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="mt-2 rounded-full bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all"
-                onClick={handleDownloadCV}
-              >
-                <FileDown className="mr-2 h-4 w-4" /> Télécharger CV
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );
