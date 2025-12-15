@@ -66,7 +66,7 @@ ${formData.message}
       formDataToSend.append("message", enhancedMessage);
       
       // Utilisez l'URL de FormSubmit avec le mode ajax pour obtenir une réponse JSON
-      const response = await fetch("https://formsubmit.co/ajax/oubourra-d@saint-louis29.net", {
+      const response = await fetch("https://formsubmit.co/ajax/oubourradivine27@gmail.com", {
         method: "POST",
         body: formDataToSend,
       });
