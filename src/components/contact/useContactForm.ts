@@ -40,77 +40,39 @@ export const useContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Préparer les données pour l'envoi
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name);
       formDataToSend.append("email", formData.email);
       formDataToSend.append("message", formData.message);
-      
-      // Ajouter des détails explicites d'expéditeur pour une meilleure identification
-      const senderInfo = `Nouveau message de ${formData.name} (${formData.email}) via Portfolio`;
-      formDataToSend.append("_subject", senderInfo);
+      formDataToSend.append("_subject", `Nouveau message de ${formData.name} via Portfolio`);
       formDataToSend.append("_replyto", formData.email);
-      
-      // Configuration FormSubmit
-      formDataToSend.append("_captcha", "false"); 
+      formDataToSend.append("_captcha", "false");
       formDataToSend.append("_template", "table");
-      formDataToSend.append("_autoresponse", "Merci pour votre message. Je vous répondrai dès que possible.");
-      
-      // Ajouter le contenu du message avec des informations claires
-      const enhancedMessage = `
-Expéditeur: ${formData.name}
-Email: ${formData.email}
----
-${formData.message}
-`;
-      formDataToSend.append("message", enhancedMessage);
-      
-      // Utilisez l'URL de FormSubmit avec le mode ajax pour obtenir une réponse JSON
+
       const response = await fetch("https://formsubmit.co/ajax/oubourradivine27@gmail.com", {
         method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
         body: formDataToSend,
       });
-      
-      const data = await response.json();
-      
+
       if (response.ok) {
-        // Si la réponse est OK, c'est un succès même si le message contient "The form was submitted successfully"
         toast({
           title: "Message envoyé !",
           description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
         });
-        
-        // Réinitialiser le formulaire
-        setFormData({
-          name: "",
-          email: "",
-          message: ""
-        });
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        throw new Error(data.message || "Échec de l'envoi du formulaire");
+        throw new Error("Échec de l'envoi");
       }
     } catch (error) {
-      // Ne pas traiter comme une erreur si le message indique que le formulaire a été soumis avec succès
-      if (error instanceof Error && error.message.includes("The form was submitted successfully")) {
-        toast({
-          title: "Message envoyé !",
-          description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
-        });
-        
-        // Réinitialiser le formulaire
-        setFormData({
-          name: "",
-          email: "",
-          message: ""
-        });
-      } else {
-        toast({
-          title: "Erreur",
-          description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
-          variant: "destructive"
-        });
-        console.error("Erreur d'envoi du formulaire:", error);
-      }
+      console.error("Erreur d'envoi:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement à oubourradivine27@gmail.com",
+        variant: "destructive"
+      });
     } finally {
       setIsSubmitting(false);
     }
