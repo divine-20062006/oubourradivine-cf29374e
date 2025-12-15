@@ -1,75 +1,87 @@
-
 import ContactForm from "./contact/ContactForm";
-import { Phone, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Phone, Linkedin, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen bg-gradient-to-br from-[#0F1419] via-[#1A1F2C] to-[#0F1419]">
-      <div className="section-container">
+    <section id="contact" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+      <div className="max-w-5xl mx-auto px-6 py-20">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="section-title text-white text-center mb-4">Me Contacter</h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            N'hésitez pas à me contacter pour discuter de vos projets ou pour toute opportunité professionnelle.
+          <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Contact
+          </h1>
+          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+            Disponible pour discuter de vos projets et opportunités
           </p>
         </div>
-        
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="glass-card rounded-xl p-8 space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Coordonnées</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Disponible pour échanger sur vos projets et opportunités professionnelles.
-                </p>
-              </div>
+
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          {/* Contact Info - Left side */}
+          <div className="lg:col-span-2 space-y-8">
+            <div>
+              <h2 className="text-xl font-medium text-white mb-6">
+                Coordonnées
+              </h2>
               
-              <div className="space-y-4 pt-4">
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                  <div className="p-3 rounded-full bg-blue-500/20">
-                    <Phone className="w-5 h-5 text-blue-400" />
+              <div className="space-y-5">
+                <a 
+                  href="tel:0780842417"
+                  className="flex items-center gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                    <Phone className="w-4 h-4 text-cyan-400" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm font-medium">Téléphone</p>
-                    <p className="text-white font-semibold text-lg">07 80 84 24 17</p>
+                    <p className="text-slate-500 text-xs uppercase tracking-wider mb-0.5">Téléphone</p>
+                    <p className="text-white font-medium group-hover:text-cyan-400 transition-colors">07 80 84 24 17</p>
                   </div>
-                </div>
-                
+                </a>
+
                 <a 
                   href="https://www.linkedin.com/in/divine-oubourra-b871a4338/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group"
+                  className="flex items-center gap-4 group"
                 >
-                  <div className="p-3 rounded-full bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
-                    <Linkedin className="w-5 h-5 text-blue-400" />
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                    <Linkedin className="w-4 h-4 text-cyan-400" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm font-medium">LinkedIn</p>
-                    <p className="text-white font-semibold text-lg group-hover:text-blue-400 transition-colors">Divine Oubourra</p>
+                    <p className="text-slate-500 text-xs uppercase tracking-wider mb-0.5">LinkedIn</p>
+                    <p className="text-white font-medium group-hover:text-cyan-400 transition-colors">Divine Oubourra</p>
                   </div>
                 </a>
-                
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5">
-                  <div className="p-3 rounded-full bg-blue-500/20">
-                    <Mail className="w-5 h-5 text-blue-400" />
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-cyan-400" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm font-medium">Email</p>
-                    <p className="text-white font-semibold">Utilisez le formulaire →</p>
+                    <p className="text-slate-500 text-xs uppercase tracking-wider mb-0.5">Email</p>
+                    <p className="text-slate-300 font-medium">Via le formulaire</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Contact Form */}
-          <div className="glass-card rounded-xl p-8">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Envoyez un message</h3>
-              <p className="text-gray-300">Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
+
+            {/* Availability indicator */}
+            <div className="pt-6 border-t border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                <span className="text-slate-400 text-sm">Disponible pour un stage</span>
+              </div>
             </div>
-            <ContactForm />
+          </div>
+
+          {/* Contact Form - Right side */}
+          <div className="lg:col-span-3">
+            <div className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+              <h2 className="text-xl font-medium text-white mb-6">
+                Envoyer un message
+              </h2>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>
