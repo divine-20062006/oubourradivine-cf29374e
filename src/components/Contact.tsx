@@ -1,10 +1,22 @@
 import ContactForm from "./contact/ContactForm";
-import { Phone, Linkedin, Mail, MapPin } from "lucide-react";
+import { Phone, Linkedin, Mail } from "lucide-react";
+import contactBackground from "@/assets/contact-background.jpeg";
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
-      <div className="max-w-5xl mx-auto px-6 py-20">
+    <section
+      id="contact"
+      className="min-h-screen relative bg-slate-900"
+      style={{
+        backgroundImage: `url(${contactBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Overlay pour lisibilité */}
+      <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" />
+      <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
