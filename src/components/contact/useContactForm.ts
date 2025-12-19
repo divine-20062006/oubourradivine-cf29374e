@@ -52,19 +52,26 @@ export const useContactForm = () => {
       const response = await fetch("https://formsubmit.co/ajax/oubourradivine27@gmail.com", {
         method: "POST",
         headers: {
-          'Accept': 'application/json'
+          Accept: "application/json",
         },
         body: formDataToSend,
       });
 
-      if (response.ok) {
+      const result = await response.json().catch(() => null);
+
+      // FormSubmit renvoie parfois 200 même si le formulaire n'est pas activé
+      if (response.ok && result?.success !== "false") {
         toast({
           title: "Message envoyé !",
           description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
         });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        throw new Error("Échec de l'envoi");
+        const msg =
+          typeof result?.message === "string" && result.message.trim().length > 0
+            ? result.message
+            : "Échec de l'envoi";
+        throw new Error(msg);
       }
     } catch (error) {
       console.error("Erreur d'envoi:", error);
