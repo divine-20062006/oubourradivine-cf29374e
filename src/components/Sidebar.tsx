@@ -31,17 +31,12 @@ const Sidebar = () => {
     >
       {/* Photo de profil */}
       <div className={`p-4 border-b border-slate-700/50 flex items-center ${collapsed ? "justify-center" : "justify-between"}`}>
-        <div className={`flex items-center gap-3 ${collapsed ? "" : ""}`}>
-          <div className="w-10 h-10 rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0">
-            <img 
-              src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
-              alt="Divine Oubourra" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          {!collapsed && (
-            <span className="text-white font-medium text-sm">Divine O.</span>
-          )}
+        <div className="w-14 h-14 rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0">
+          <img 
+            src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
+            alt="Divine Oubourra" 
+            className="w-full h-full object-cover"
+          />
         </div>
         <button
           onClick={() => setCollapsed(!collapsed)}
@@ -51,6 +46,15 @@ const Sidebar = () => {
           <ChevronLeft className="w-5 h-5" />
         </button>
       </div>
+      {collapsed && (
+        <button
+          onClick={() => setCollapsed(false)}
+          className="p-2 mx-auto mt-2 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800"
+          aria-label="Ouvrir le menu"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      )}
       {collapsed && (
         <button
           onClick={() => setCollapsed(false)}
