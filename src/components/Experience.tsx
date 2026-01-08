@@ -3,6 +3,16 @@ import { Briefcase } from "lucide-react";
 const experiences = [
   {
     title: "Stagiaire en administration réseau et cybersécurité",
+    company: "SHOP Application",
+    period: "JANVIER 2026 - FÉVRIER 2026",
+    tasks: [
+      "Mise en place d'un serveur VPN sur Debian",
+      "Création d'un script de monitoring sur Python",
+      "Installation d'un wifi invité"
+    ]
+  },
+  {
+    title: "Stagiaire en administration réseau et cybersécurité",
     company: "SC MICRO",
     period: "MAI 2025 - JUIN 2025",
     tasks: [
@@ -11,16 +21,6 @@ const experiences = [
       "Installation et ajout de disques durs sur un serveur NAS",
       "Mise à jour de postes de travail avec une nouvelle version de Windows",
       "Installation d'une baie informatique et organisation du câblage"
-    ]
-  },
-  {
-    title: "Stagiaire en administration réseau et cybersécurité",
-    company: "SHOP Application",
-    period: "JANVIER 2025 - FÉVRIER 2025",
-    tasks: [
-      "Mise en place d'un serveur VPN sur Debian",
-      "Création d'un script de monitoring sur Python",
-      "Installation d'un wifi invité"
     ]
   }
 ];
