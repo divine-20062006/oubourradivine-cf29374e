@@ -3,6 +3,7 @@ import { Briefcase } from "lucide-react";
 const experiences = [
   {
     title: "Stagiaire en administration réseau et cybersécurité",
+    company: "SC MICRO",
     period: "MAI 2025 - JUIN 2025",
     tasks: [
       "Mise en place et configuration de VLAN sur équipements Cisco",
@@ -10,6 +11,16 @@ const experiences = [
       "Installation et ajout de disques durs sur un serveur NAS",
       "Mise à jour de postes de travail avec une nouvelle version de Windows",
       "Installation d'une baie informatique et organisation du câblage"
+    ]
+  },
+  {
+    title: "Stagiaire en administration réseau et cybersécurité",
+    company: "SHOP Application",
+    period: "JANVIER 2025 - FÉVRIER 2025",
+    tasks: [
+      "Mise en place d'un serveur VPN sur Debian",
+      "Création d'un script de monitoring sur Python",
+      "Installation d'un wifi invité"
     ]
   }
 ];
@@ -32,9 +43,10 @@ const Experience = () => {
                   <Briefcase className="w-6 h-6 text-[#00FF41]" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-2 text-white">
+                  <h3 className="text-xl font-semibold mb-1 text-white">
                     {experience.title}
                   </h3>
+                  <p className="text-[#00FF41] text-sm font-medium">{experience.company}</p>
                   <p className="text-[#0AFFFF] text-sm font-medium mb-4">{experience.period}</p>
                   <ul className="space-y-2">
                     {experience.tasks.map((task, taskIndex) => (
