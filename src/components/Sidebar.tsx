@@ -31,7 +31,7 @@ const Sidebar = () => {
     >
       {/* Photo de profil */}
       <div className={`p-4 border-b border-slate-700/50 flex items-center ${collapsed ? "justify-center" : "justify-between"}`}>
-        <div className="w-20 h-20 rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0">
+        <div className="w-28 h-28 rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0">
           <img 
             src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
             alt="Divine Oubourra" 
