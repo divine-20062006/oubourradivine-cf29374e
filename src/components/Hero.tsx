@@ -25,18 +25,6 @@ const Hero = () => {
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="section-container relative">
-        {/* Photo de profil en haut à droite */}
-        <div className={`absolute top-4 right-4 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <div className="relative">
-            <div className="w-24 h-24 rounded-full border-2 border-[#0AFFFF]/30 shadow-xl shadow-[#0AFFFF]/20 overflow-hidden bg-gradient-to-br from-[#0AFFFF]/10 to-[#00FF41]/10">
-              <img 
-                src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
-                alt="Divine Oubourra" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
 
         <div className={`max-w-4xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           {/* Contenu principal */}
