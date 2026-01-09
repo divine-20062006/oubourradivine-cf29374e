@@ -6,7 +6,15 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+  captcha: string;
 }
+
+// Simple math CAPTCHA
+const generateCaptcha = () => {
+  const a = Math.floor(Math.random() * 10) + 1;
+  const b = Math.floor(Math.random() * 10) + 1;
+  return { question: `${a} + ${b} = ?`, answer: a + b };
+};
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Veuillez renseigner votre nom.").max(100, "Nom trop long (100 caractères max)."),
@@ -16,15 +24,18 @@ const contactSchema = z.object({
     .trim()
     .min(1, "Veuillez écrire un message.")
     .max(2000, "Message trop long (2000 caractères max)."),
+  captcha: z.string().min(1, "Veuillez résoudre le CAPTCHA."),
 });
 
 export const useContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaData, setCaptchaData] = useState(generateCaptcha);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
+    captcha: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,6 +57,18 @@ export const useContactForm = () => {
         description: msg,
         variant: "destructive",
       });
+      return;
+    }
+
+    // Validate CAPTCHA answer
+    if (parseInt(parsed.data.captcha, 10) !== captchaData.answer) {
+      toast({
+        title: "Erreur",
+        description: "Réponse CAPTCHA incorrecte. Veuillez réessayer.",
+        variant: "destructive",
+      });
+      setCaptchaData(generateCaptcha());
+      setFormData(prev => ({ ...prev, captcha: "" }));
       return;
     }
 
@@ -74,7 +97,8 @@ export const useContactForm = () => {
           title: "Message envoyé !",
           description: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible.",
         });
-        setFormData({ name: "", email: "", message: "" });
+        setCaptchaData(generateCaptcha());
+        setFormData({ name: "", email: "", message: "", captcha: "" });
       } else {
         toast({
           title: "Erreur",
@@ -96,6 +120,7 @@ export const useContactForm = () => {
   return {
     formData,
     isSubmitting,
+    captchaQuestion: captchaData.question,
     handleChange,
     handleSubmit,
   };

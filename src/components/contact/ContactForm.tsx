@@ -1,10 +1,11 @@
-import { Send } from "lucide-react";
+import { Send, ShieldCheck } from "lucide-react";
 import { useContactForm } from "./useContactForm";
 
 const ContactForm = () => {
   const { 
     formData, 
-    isSubmitting, 
+    isSubmitting,
+    captchaQuestion,
     handleChange, 
     handleSubmit
   } = useContactForm();
@@ -55,6 +56,24 @@ const ContactForm = () => {
           className="w-full px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-600/50 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"
           placeholder="Votre message..."
           required
+        />
+      </div>
+
+      {/* CAPTCHA */}
+      <div className="space-y-2">
+        <label htmlFor="captcha" className="flex items-center gap-2 text-sm text-slate-400 font-medium">
+          <ShieldCheck className="w-4 h-4 text-cyan-400" />
+          Vérification anti-spam : {captchaQuestion}
+        </label>
+        <input
+          type="text"
+          id="captcha"
+          value={formData.captcha}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-600/50 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+          placeholder="Votre réponse"
+          required
+          autoComplete="off"
         />
       </div>
       
