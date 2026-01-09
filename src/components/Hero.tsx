@@ -7,26 +7,49 @@ import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  
+  const fullText = "Étudiante en BTS SIO SISR, passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
 
   useEffect(() => {
-    // Déclenchement de l'animation après le chargement du composant
     setIsVisible(true);
   }, []);
 
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    let currentIndex = 0;
+    const typeInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setDisplayedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, 30);
+
+    return () => clearInterval(typeInterval);
+  }, [isVisible]);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
   const handleDownloadCV = () => {
-    // URL du CV partagé
     const cvUrl = "https://cvdesignr.com/p/672a0d01c4e53";
     const fileName = 'CV_OUBOURRA_Divine.pdf';
-    
-    // Utilisez la nouvelle fonction pour télécharger le CV externe
     downloadExternalFile(cvUrl, fileName);
   };
 
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      <div className="section-container relative">
+      <div className="section-container relative flex items-center justify-center">
 
-        <div className={`max-w-4xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`max-w-4xl text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           {/* Contenu principal */}
           <div className="space-y-8">
             <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
@@ -34,14 +57,15 @@ const Hero = () => {
                 Divine Oubourra
               </h1>
               
-              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-                Étudiante en BTS SIO SISR, passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.
+              <p className="text-xl text-gray-200 mb-8 leading-relaxed min-h-[80px]">
+                {displayedText}
+                <span className={`inline-block w-0.5 h-5 bg-cyan-400 ml-1 align-middle ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
               </p>
             </div>
 
             {/* Tags de compétences */}
-            <div className={`flex flex-wrap gap-3 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Cloud'].map((skill, index) => (
+            <div className={`flex flex-wrap justify-center gap-3 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Cloud'].map((skill) => (
                 <span 
                   key={skill}
                   className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full border border-blue-400/50 text-sm hover:bg-blue-500/30 transition-colors"
@@ -52,7 +76,7 @@ const Hero = () => {
             </div>
             
             {/* Boutons d'action */}
-            <div className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button 
                 variant="outline" 
                 className="rounded-full hover:bg-blue-500/10 hover:text-blue-300 hover:shadow-lg hover:-translate-y-1 transition-all text-white border-gray-300 hover:border-blue-400"
