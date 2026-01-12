@@ -1,12 +1,12 @@
 import Education from "../components/Education";
-import contactBackground from "@/assets/contact-background.jpeg";
+import cybersecurityBackground from "@/assets/cybersecurity-background.jpg";
 
 const EducationPage = () => {
   return (
     <div 
       className="min-h-screen relative"
       style={{
-        backgroundImage: `url(${contactBackground})`,
+        backgroundImage: `url(${cybersecurityBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
