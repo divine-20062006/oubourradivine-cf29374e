@@ -1,12 +1,12 @@
 import Experience from "../components/Experience";
-import contactBackground from "@/assets/contact-background.jpeg";
+import cybersecurityBackground from "@/assets/cybersecurity-background.jpg";
 
 const ExperiencePage = () => {
   return (
     <div 
       className="min-h-screen relative"
       style={{
-        backgroundImage: `url(${contactBackground})`,
+        backgroundImage: `url(${cybersecurityBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

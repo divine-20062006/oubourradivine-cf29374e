@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import { useEffect } from "react";
-import contactBackground from "@/assets/contact-background.jpeg";
+import cybersecurityBackground from "@/assets/cybersecurity-background.jpg";
 
 const Home = () => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const Home = () => {
     <div 
       className="min-h-screen relative"
       style={{
-        backgroundImage: `url(${contactBackground})`,
+        backgroundImage: `url(${cybersecurityBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

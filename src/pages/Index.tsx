@@ -3,14 +3,14 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Education from "../components/Education";
 import Contact from "../components/Contact";
-import contactBackground from "@/assets/contact-background.jpeg";
+import cybersecurityBackground from "@/assets/cybersecurity-background.jpg";
 
 const Index = () => {
   return (
     <div 
       className="min-h-screen relative"
       style={{
-        backgroundImage: `url(${contactBackground})`,
+        backgroundImage: `url(${cybersecurityBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
