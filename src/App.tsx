@@ -11,7 +11,7 @@ import EducationPage from "./pages/EducationPage";
 import ContactPage from "./pages/ContactPage";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import BackgroundElement from "./components/BackgroundElement";
+
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <div className="min-h-screen relative flex">
-          <BackgroundElement />
+          
           <Sidebar />
           <div className="flex-1 ml-16 md:ml-56 flex flex-col min-h-screen transition-all duration-300">
             <div className="flex-grow">
