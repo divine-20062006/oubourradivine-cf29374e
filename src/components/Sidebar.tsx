@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   return (
     <aside 
-      className={`fixed left-0 top-0 h-full z-50 border-r border-slate-700/30 transition-all duration-300 flex flex-col ${
+      className={`fixed left-0 top-0 h-full z-50 border-r border-slate-700/30 transition-all duration-300 flex flex-col bg-transparent ${
         collapsed ? "w-16" : "w-56"
       }`}
     >
