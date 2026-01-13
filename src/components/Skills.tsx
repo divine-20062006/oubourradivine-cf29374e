@@ -1,5 +1,5 @@
 
-import { Server, Shield, Network, Database, Cloud, Terminal } from "lucide-react";
+import { Server, Shield, Network, Database, Terminal } from "lucide-react";
 
 const skills = [
   {
@@ -23,9 +23,9 @@ const skills = [
     description: "SQL Server, MySQL, Administration et maintenance",
   },
   {
-    icon: Cloud,
-    title: "Cloud Computing",
-    description: "Azure, AWS, Solutions Cloud, Virtualisation",
+    icon: Shield,
+    title: "Cybersécurité",
+    description: "ANSSI, RGPD, CNIL, PIA",
   },
   {
     icon: Terminal,
