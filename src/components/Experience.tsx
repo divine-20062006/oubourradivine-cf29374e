@@ -49,8 +49,7 @@ const Experience = () => {
                     {experience.title}
                   </h3>
                   <p className="text-[#00FF41] text-sm font-medium">{experience.company}</p>
-                  <p className="text-[#0AFFFF] text-sm font-medium">{experience.period} • {experience.duration}</p>
-                  <p className="text-slate-400 text-xs mb-4">{experience.duration}</p>
+                  <p className="text-[#0AFFFF] text-sm font-medium mb-4">{experience.period} • {experience.duration}</p>
                   <ul className="space-y-2">
                     {experience.tasks.map((task, taskIndex) => (
                       <li
