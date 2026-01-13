@@ -1,4 +1,4 @@
-import { GraduationCap, Award, CheckCircle } from "lucide-react";
+import { GraduationCap, Award, CheckCircle, BookOpen } from "lucide-react";
 
 const Education = () => {
   const skills = [
@@ -21,8 +21,8 @@ const Education = () => {
       <div className="section-container">
         <span className="title-badge animate-fade-up">Formation</span>
         
-        <div className="max-w-4xl mx-auto">
-          {/* Main Education Card */}
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* BTS SIO Card */}
           <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "100ms" }}>
             <div className="flex items-start gap-4 mb-6">
               <div className="p-3 rounded-lg bg-[#0AFFFF]/10 border border-[#0AFFFF]/30 animate-fade-up" style={{ animationDelay: "200ms" }}>
@@ -73,6 +73,31 @@ const Education = () => {
                     <span className="text-white text-sm">{cert.name}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Baccalauréat Card */}
+          <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "900ms" }}>
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-lg bg-[#00FF41]/10 border border-[#00FF41]/30 animate-fade-up" style={{ animationDelay: "950ms" }}>
+                <BookOpen className="w-8 h-8 text-[#00FF41]" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white animate-fade-up" style={{ animationDelay: "1000ms" }}>
+                  Baccalauréat Technique
+                </h3>
+                <p className="text-[#00FF41] font-medium animate-fade-up" style={{ animationDelay: "1050ms" }}>
+                  Octobre 2023 - Juin 2024
+                </p>
+                <div className="mt-3 space-y-2">
+                  <p className="text-slate-300 animate-fade-up" style={{ animationDelay: "1100ms" }}>
+                    <span className="text-[#0AFFFF] font-medium">Option H2</span> - Service Informatique de Gestion
+                  </p>
+                  <p className="text-slate-400 animate-fade-up" style={{ animationDelay: "1150ms" }}>
+                    Lycée Technique Commercial de l'OCH, Pointe Noire, République du Congo
+                  </p>
+                </div>
               </div>
             </div>
           </div>
