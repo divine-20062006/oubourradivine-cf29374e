@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FileText, ExternalLink, X } from "lucide-react";
+import openvpnImage from "@/assets/openvpn-project.png";
 
 const projects = [
   {
@@ -37,6 +38,47 @@ const projects = [
       ],
       result: "Une application web fonctionnelle, sécurisée et adaptée aux besoins d'une agence immobilière fictive, démontrant mes compétences techniques acquises en BTS SIO option SISR.",
       pdfUrl: "/documents/SALAC_portfolio.pdf"
+    }
+  },
+  {
+    id: "openvpn",
+    title: "Mise en place d'un serveur VPN sur Debian 13",
+    tags: ["OpenVPN", "Debian", "LDAP", "Sécurité"],
+    image: openvpnImage,
+    hasDocumentation: true,
+    documentation: {
+      description: "Mise en place d'un VPN sécurisé pour permettre aux utilisateurs distants d'accéder au réseau interne de l'entreprise avec authentification LDAP.",
+      context: "Projet réalisé dans le cadre de ma formation en BTS SIO option SISR - Deuxième Année",
+      objectives: [
+        "Mettre en place un VPN sécurisé avec OpenVPN",
+        "Configurer l'authentification centralisée via LDAP/Active Directory",
+        "Assurer la haute disponibilité avec double IP publique",
+        "Sécuriser le trafic avec chiffrement fort AES-256-GCM"
+      ],
+      technologies: [
+        "Debian 13 (Trixie)",
+        "OpenVPN (Full Tunnel)",
+        "Proxmox VE",
+        "LDAP/Active Directory (RFC 2307)",
+        "PKI / SSL/TLS",
+        "AES-256-GCM + SHA256"
+      ],
+      features: [
+        "Serveur VPN avec support IPv4/IPv6",
+        "Authentification centralisée LDAP avec gestion des groupes vpnAccess",
+        "Routage IP et NAT pour accès Internet",
+        "Haute disponibilité avec failover automatique",
+        "Génération automatisée de profils clients .ovpn"
+      ],
+      skills: [
+        "Linux / Debian",
+        "Réseaux : VPN, NAT, routage",
+        "Sécurité : PKI, SSL/TLS, LDAP, chiffrement AES-256",
+        "Virtualisation : Proxmox VE",
+        "Documentation technique"
+      ],
+      result: "VPN complet et sécurisé avec authentification centralisée Active Directory, chiffrement fort, haute disponibilité et accès distant fiable pour tous les utilisateurs.",
+      pdfUrl: "/documents/mission1_portfolio.pdf"
     }
   },
   {
