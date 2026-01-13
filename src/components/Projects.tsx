@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FileText, ExternalLink, X } from "lucide-react";
 import openvpnImage from "@/assets/openvpn-project.png";
-
+import monitoringImage from "@/assets/monitoring-project.jpg";
 const projects = [
   {
     id: "salac",
@@ -85,7 +85,7 @@ const projects = [
     id: "monitoring",
     title: "Création d'un script de monitoring sur Python",
     tags: ["Python", "Monitoring", "Automatisation", "Sécurité"],
-    image: "/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png",
+    image: monitoringImage,
     hasDocumentation: true,
     documentation: {
       description: "Développement d'un script Python permettant de surveiller en temps réel l'état des serveurs et des services critiques de l'infrastructure, avec génération d'alertes automatiques.",
