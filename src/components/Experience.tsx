@@ -5,6 +5,7 @@ const experiences = [
     title: "Stagiaire en administration réseau et cybersécurité",
     company: "SHOP Application",
     period: "JANVIER 2026 - FÉVRIER 2026",
+    duration: "6 semaines",
     tasks: [
       "Mise en place d'un serveur VPN sur Debian",
       "Création d'un script de monitoring sur Python",
@@ -15,6 +16,7 @@ const experiences = [
     title: "Stagiaire en administration réseau et cybersécurité",
     company: "SC MICRO",
     period: "MAI 2025 - JUIN 2025",
+    duration: "4 semaines",
     tasks: [
       "Mise en place et configuration de VLAN sur équipements Cisco",
       "Configuration et paramétrage d'un pare-feu WatchGuard",
@@ -47,7 +49,8 @@ const Experience = () => {
                     {experience.title}
                   </h3>
                   <p className="text-[#00FF41] text-sm font-medium">{experience.company}</p>
-                  <p className="text-[#0AFFFF] text-sm font-medium mb-4">{experience.period}</p>
+                  <p className="text-[#0AFFFF] text-sm font-medium">{experience.period} • {experience.duration}</p>
+                  <p className="text-slate-400 text-xs mb-4">{experience.duration}</p>
                   <ul className="space-y-2">
                     {experience.tasks.map((task, taskIndex) => (
                       <li

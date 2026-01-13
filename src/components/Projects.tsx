@@ -82,6 +82,45 @@ const projects = [
     }
   },
   {
+    id: "monitoring",
+    title: "Création d'un script de monitoring sur Python",
+    tags: ["Python", "Monitoring", "Automatisation", "Sécurité"],
+    image: "/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png",
+    hasDocumentation: true,
+    documentation: {
+      description: "Développement d'un script Python permettant de surveiller en temps réel l'état des serveurs et des services critiques de l'infrastructure, avec génération d'alertes automatiques.",
+      context: "Projet réalisé lors de mon stage chez SHOP Application - Deuxième Année BTS SIO option SISR",
+      objectives: [
+        "Automatiser la surveillance des serveurs et services",
+        "Détecter les anomalies et pannes en temps réel",
+        "Générer des rapports et alertes automatiques",
+        "Optimiser la réactivité de l'équipe IT"
+      ],
+      technologies: [
+        "Python 3",
+        "Bibliothèques : psutil, requests, smtplib",
+        "API REST",
+        "Cron / Planification de tâches",
+        "SMTP pour notifications email"
+      ],
+      features: [
+        "Surveillance CPU, RAM, disque et réseau",
+        "Vérification de la disponibilité des services (HTTP, SSH, DNS)",
+        "Envoi d'alertes email en cas d'anomalie",
+        "Journalisation des événements",
+        "Dashboard simple pour visualisation"
+      ],
+      skills: [
+        "Programmation Python",
+        "Administration système Linux",
+        "Scripting et automatisation",
+        "Monitoring et supervision",
+        "Gestion des alertes et notifications"
+      ],
+      result: "Script de monitoring fonctionnel permettant une surveillance proactive de l'infrastructure, réduisant le temps de détection des incidents et améliorant la réactivité de l'équipe."
+    }
+  },
+  {
     id: "glpi",
     title: "Projet scolaire – Gestion d'un parc informatique GLPI",
     tags: ["GLPI", "Gestion de parc", "IT Asset Management"],
