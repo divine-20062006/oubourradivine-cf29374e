@@ -10,7 +10,7 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   
-  const fullText = "Étudiante en BTS SIO SISR, passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
+  const fullText = "Technicienne, passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
 
   useEffect(() => {
     setIsVisible(true);
