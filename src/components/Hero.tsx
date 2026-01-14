@@ -10,7 +10,7 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   
-  const fullText = "Passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
+  const fullText = "Spécialisée en administration systèmes, réseaux et cybersécurité, à la recherche de nouveaux défis techniques.";
 
   useEffect(() => {
     setIsVisible(true);
