@@ -9,7 +9,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   const handleDownloadCV = () => {
-    const cvUrl = "https://cvdesignr.com/p/672a0d01c4e53";
+    const cvUrl = "https://cvdesignr.com/p/6932bf7989186";
     const fileName = 'CV_OUBOURRA_Divine.pdf';
     downloadExternalFile(cvUrl, fileName);
   };
