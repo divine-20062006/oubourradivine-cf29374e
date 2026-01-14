@@ -10,7 +10,7 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   
-  const fullText = "Technicienne, passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
+  const fullText = "Passionnée par l'administration des systèmes et réseaux et la cybersécurité, à la recherche de nouvelles expériences pratiques.";
 
   useEffect(() => {
     setIsVisible(true);
@@ -59,8 +59,8 @@ const Hero = () => {
 
           {/* Nom avec ligne décorative */}
           <div className={`relative inline-block mb-6 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h1 className="text-5xl sm:text-7xl font-bold text-white tracking-tight">
-              Divine <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">OUBOURRA</span>
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Divine OUBOURRA</span>
             </h1>
             <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent transition-all duration-1000 delay-500 ${isVisible ? 'w-32' : 'w-0'}`} />
           </div>
