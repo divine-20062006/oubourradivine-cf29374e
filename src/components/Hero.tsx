@@ -1,5 +1,3 @@
-
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FileDown } from "lucide-react";
 import { Button } from "./ui/button";
@@ -100,13 +98,19 @@ const Hero = () => {
               Télécharger mon CV
             </Button>
             
-            <Link to="/contact">
+            <a 
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <Button 
                 className="rounded-full px-6 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300"
               >
                 Me contacter
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Indicateur scroll discret */}
