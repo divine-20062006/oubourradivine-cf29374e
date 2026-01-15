@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("accueil");
 
   const handleDownloadCV = () => {
     const cvUrl = "https://cvdesignr.com/p/6932bf7989186";
@@ -15,13 +14,41 @@ const Sidebar = () => {
   };
 
   const navLinks = [
-    { to: "/", icon: Home, label: "Accueil" },
-    { to: "/competences", icon: Code, label: "Compétences" },
-    { to: "/projets", icon: FolderGit2, label: "Projets" },
-    { to: "/experiences", icon: Briefcase, label: "Expériences" },
-    { to: "/formation", icon: GraduationCap, label: "Formation" },
-    { to: "/contact", icon: Mail, label: "Contact" },
+    { to: "#accueil", icon: Home, label: "Accueil", id: "accueil" },
+    { to: "#competences", icon: Code, label: "Compétences", id: "competences" },
+    { to: "#projets", icon: FolderGit2, label: "Projets", id: "projets" },
+    { to: "#experiences", icon: Briefcase, label: "Expériences", id: "experiences" },
+    { to: "#formation", icon: GraduationCap, label: "Formation", id: "formation" },
+    { to: "#contact", icon: Mail, label: "Contact", id: "contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
+    e.preventDefault();
+    const element = document.querySelector(to);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', to);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => document.getElementById(link.id));
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navLinks[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <aside 
@@ -55,25 +82,17 @@ const Sidebar = () => {
           <ChevronRight className="w-5 h-5" />
         </button>
       )}
-      {collapsed && (
-        <button
-          onClick={() => setCollapsed(false)}
-          className="p-2 mx-auto mt-2 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800"
-          aria-label="Ouvrir le menu"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      )}
 
       {/* Navigation */}
       <nav className="flex-1 py-4 overflow-y-auto">
         <ul className="space-y-1 px-2">
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.to;
+            const isActive = activeSection === link.id;
             return (
               <li key={link.to}>
-                <Link
-                  to={link.to}
+                <a
+                  href={link.to}
+                  onClick={(e) => handleNavClick(e, link.to)}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
                     isActive
                       ? "bg-cyan-500/20 text-cyan-400 font-semibold"
@@ -85,7 +104,7 @@ const Sidebar = () => {
                   <span className={`transition-opacity whitespace-nowrap ${collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"}`}>
                     {link.label}
                   </span>
-                </Link>
+                </a>
               </li>
             );
           })}
