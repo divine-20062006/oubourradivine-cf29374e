@@ -17,48 +17,48 @@ const Education = () => {
   ];
 
   return (
-    <section id="formation" className="py-20">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+    <section id="formation" className="py-12 sm:py-16 lg:py-20">
+      <div className="section-container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
             Formation
           </h2>
-          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
-          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+          <div className="w-12 sm:w-16 h-0.5 bg-cyan-500 mx-auto mb-4 sm:mb-6" />
+          <p className="text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-light px-4">
             Parcours académique et certifications obtenues
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
           {/* BTS SIO Card */}
-          <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "100ms" }}>
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 rounded-lg bg-[#0AFFFF]/10 border border-[#0AFFFF]/30 animate-fade-up" style={{ animationDelay: "200ms" }}>
-                <GraduationCap className="w-8 h-8 text-[#0AFFFF]" />
+          <div className="glass-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "100ms" }}>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="p-2.5 sm:p-3 rounded-lg bg-[#0AFFFF]/10 border border-[#0AFFFF]/30 animate-fade-up self-start" style={{ animationDelay: "200ms" }}>
+                <GraduationCap className="w-6 sm:w-8 h-6 sm:h-8 text-[#0AFFFF]" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-white animate-fade-up" style={{ animationDelay: "250ms" }}>
+                <h3 className="text-xl sm:text-2xl font-semibold text-white animate-fade-up" style={{ animationDelay: "250ms" }}>
                   BTS SIO option SISR
                 </h3>
-                <p className="text-[#0AFFFF] font-medium animate-fade-up" style={{ animationDelay: "300ms" }}>
+                <p className="text-[#0AFFFF] font-medium text-sm sm:text-base animate-fade-up" style={{ animationDelay: "300ms" }}>
                   2024 - 2026
                 </p>
               </div>
             </div>
 
             {/* Skills Section */}
-            <div className="mb-8">
-              <h4 className="font-medium mb-4 text-slate-200 text-lg animate-fade-up" style={{ animationDelay: "350ms" }}>
+            <div className="mb-6 sm:mb-8">
+              <h4 className="font-medium mb-3 sm:mb-4 text-slate-200 text-base sm:text-lg animate-fade-up" style={{ animationDelay: "350ms" }}>
                 Compétences acquises
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {skills.map((skill, index) => (
                   <li 
                     key={index}
-                    className="flex items-center gap-3 text-slate-300 animate-fade-up"
+                    className="flex items-center gap-2 sm:gap-3 text-slate-300 text-sm sm:text-base animate-fade-up"
                     style={{ animationDelay: `${400 + index * 50}ms` }}
                   >
-                    <CheckCircle className="w-5 h-5 text-[#00FF41] flex-shrink-0" />
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-[#00FF41] flex-shrink-0" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -67,23 +67,23 @@ const Education = () => {
           </div>
 
           {/* Baccalauréat Card */}
-          <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "650ms" }}>
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-lg bg-[#00FF41]/10 border border-[#00FF41]/30 animate-fade-up" style={{ animationDelay: "700ms" }}>
-                <BookOpen className="w-8 h-8 text-[#00FF41]" />
+          <div className="glass-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "650ms" }}>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
+              <div className="p-2.5 sm:p-3 rounded-lg bg-[#00FF41]/10 border border-[#00FF41]/30 animate-fade-up self-start" style={{ animationDelay: "700ms" }}>
+                <BookOpen className="w-6 sm:w-8 h-6 sm:h-8 text-[#00FF41]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-white animate-fade-up" style={{ animationDelay: "750ms" }}>
+                <h3 className="text-xl sm:text-2xl font-semibold text-white animate-fade-up" style={{ animationDelay: "750ms" }}>
                   Baccalauréat Technique
                 </h3>
-                <p className="text-[#00FF41] font-medium animate-fade-up" style={{ animationDelay: "800ms" }}>
+                <p className="text-[#00FF41] font-medium text-sm sm:text-base animate-fade-up" style={{ animationDelay: "800ms" }}>
                   Octobre 2023 - Juin 2024
                 </p>
-                <div className="mt-3 space-y-2">
-                  <p className="text-slate-300 animate-fade-up" style={{ animationDelay: "850ms" }}>
+                <div className="mt-2 sm:mt-3 space-y-1.5 sm:space-y-2">
+                  <p className="text-slate-300 text-sm sm:text-base animate-fade-up" style={{ animationDelay: "850ms" }}>
                     <span className="text-[#0AFFFF] font-medium">Option H2</span> - Service Informatique de Gestion
                   </p>
-                  <p className="text-slate-400 animate-fade-up" style={{ animationDelay: "900ms" }}>
+                  <p className="text-slate-400 text-xs sm:text-sm animate-fade-up" style={{ animationDelay: "900ms" }}>
                     Lycée Technique Commercial de l'OCH, Pointe Noire, République du Congo
                   </p>
                 </div>
@@ -92,19 +92,19 @@ const Education = () => {
           </div>
 
           {/* Certifications Card */}
-          <div className="glass-card p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "950ms" }}>
-            <h4 className="font-medium mb-4 text-slate-200 text-lg animate-fade-up" style={{ animationDelay: "1000ms" }}>
+          <div className="glass-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "950ms" }}>
+            <h4 className="font-medium mb-3 sm:mb-4 text-slate-200 text-base sm:text-lg animate-fade-up" style={{ animationDelay: "1000ms" }}>
               Certifications
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               {certifications.map((cert, index) => (
                 <div 
                   key={index}
-                  className="flex items-center gap-3 px-4 py-3 bg-slate-700/30 rounded-lg border border-slate-600/30 hover:border-[#00FF41]/50 hover:bg-slate-700/50 transition-all duration-300 animate-fade-up"
+                  className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-700/30 rounded-lg border border-slate-600/30 hover:border-[#00FF41]/50 hover:bg-slate-700/50 transition-all duration-300 animate-fade-up"
                   style={{ animationDelay: `${1050 + index * 75}ms` }}
                 >
-                  <cert.icon className="w-5 h-5 text-[#00FF41] flex-shrink-0" />
-                  <span className="text-white text-sm">{cert.name}</span>
+                  <cert.icon className="w-4 sm:w-5 h-4 sm:h-5 text-[#00FF41] flex-shrink-0" />
+                  <span className="text-white text-xs sm:text-sm">{cert.name}</span>
                 </div>
               ))}
             </div>

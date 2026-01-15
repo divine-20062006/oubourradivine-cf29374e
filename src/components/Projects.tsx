@@ -133,19 +133,19 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projets" className="py-20">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+    <section id="projets" className="py-12 sm:py-16 lg:py-20">
+      <div className="section-container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
             Projets
           </h2>
-          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
-          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+          <div className="w-12 sm:w-16 h-0.5 bg-cyan-500 mx-auto mb-4 sm:mb-6" />
+          <p className="text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-light px-4">
             Réalisations techniques et projets professionnels
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -162,16 +162,16 @@ const Projects = () => {
                   />
                   {project.hasDocumentation && (
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="text-white flex items-center gap-2 text-lg font-medium">
-                        <FileText className="w-5 h-5" />
+                      <span className="text-white flex items-center gap-2 text-sm sm:text-lg font-medium">
+                        <FileText className="w-4 sm:w-5 h-4 sm:h-5" />
                         Voir la documentation
                       </span>
                     </div>
                   )}
                 </div>
               )}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#0AFFFF] transition-colors">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white group-hover:text-[#0AFFFF] transition-colors">
                   {project.title}
                 </h3>
               </div>
@@ -182,32 +182,32 @@ const Projects = () => {
 
       {/* Modal Documentation */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-slate-900 border-slate-700 text-white">
+        <DialogContent className="w-[95vw] max-w-4xl max-h-[85vh] overflow-y-auto bg-slate-900 border-slate-700 text-white mx-2 sm:mx-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-[#0AFFFF] flex items-center gap-3">
-              <FileText className="w-6 h-6" />
-              {selectedProject?.title}
+            <DialogTitle className="text-lg sm:text-2xl font-bold text-[#0AFFFF] flex items-center gap-2 sm:gap-3 pr-8">
+              <FileText className="w-5 sm:w-6 h-5 sm:h-6 flex-shrink-0" />
+              <span className="line-clamp-2">{selectedProject?.title}</span>
             </DialogTitle>
           </DialogHeader>
           
           {selectedProject?.documentation && (
-            <div className="space-y-6 mt-4">
+            <div className="space-y-4 sm:space-y-6 mt-3 sm:mt-4">
               {/* Contexte */}
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/50">
-                <h4 className="text-lg font-semibold text-[#00FF41] mb-2">Contexte</h4>
-                <p className="text-slate-300">{selectedProject.documentation.context}</p>
+              <div className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-slate-700/50">
+                <h4 className="text-base sm:text-lg font-semibold text-[#00FF41] mb-2">Contexte</h4>
+                <p className="text-slate-300 text-sm sm:text-base">{selectedProject.documentation.context}</p>
               </div>
 
               {/* Description */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0AFFFF] mb-2">Description</h4>
-                <p className="text-slate-300 leading-relaxed">{selectedProject.documentation.description}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Description</h4>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{selectedProject.documentation.description}</p>
               </div>
 
               {/* Objectifs */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0AFFFF] mb-2">Objectifs du projet</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1">
+                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Objectifs du projet</h4>
+                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
                   {selectedProject.documentation.objectives.map((obj, i) => (
                     <li key={i}>{obj}</li>
                   ))}
@@ -216,10 +216,10 @@ const Projects = () => {
 
               {/* Technologies */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0AFFFF] mb-2">Technologies utilisées</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Technologies utilisées</h4>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedProject.documentation.technologies.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-700/50 text-white rounded-full text-sm border border-slate-600/50">
+                    <span key={i} className="px-2 sm:px-3 py-1 bg-slate-700/50 text-white rounded-full text-xs sm:text-sm border border-slate-600/50">
                       {tech}
                     </span>
                   ))}
@@ -228,8 +228,8 @@ const Projects = () => {
 
               {/* Fonctionnalités */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0AFFFF] mb-2">Fonctionnalités principales</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1">
+                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Fonctionnalités principales</h4>
+                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
                   {selectedProject.documentation.features.map((feat, i) => (
                     <li key={i}>{feat}</li>
                   ))}
@@ -238,8 +238,8 @@ const Projects = () => {
 
               {/* Compétences */}
               <div>
-                <h4 className="text-lg font-semibold text-[#0AFFFF] mb-2">Compétences développées</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1">
+                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Compétences développées</h4>
+                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
                   {selectedProject.documentation.skills.map((skill, i) => (
                     <li key={i}>{skill}</li>
                   ))}
@@ -247,21 +247,23 @@ const Projects = () => {
               </div>
 
               {/* Résultat */}
-              <div className="bg-slate-800/50 rounded-lg p-4 border border-[#00FF41]/30">
-                <h4 className="text-lg font-semibold text-[#00FF41] mb-2">Résultat</h4>
-                <p className="text-slate-300">{selectedProject.documentation.result}</p>
+              <div className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-[#00FF41]/30">
+                <h4 className="text-base sm:text-lg font-semibold text-[#00FF41] mb-2">Résultat</h4>
+                <p className="text-slate-300 text-sm sm:text-base">{selectedProject.documentation.result}</p>
               </div>
 
               {/* Bouton PDF */}
-              <a 
-                href={selectedProject.documentation.pdfUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0AFFFF]/20 hover:bg-[#0AFFFF]/30 text-[#0AFFFF] rounded-lg border border-[#0AFFFF]/50 transition-all"
-              >
-                <ExternalLink className="w-5 h-5" />
-                Télécharger la documentation PDF
-              </a>
+              {selectedProject.documentation.pdfUrl && (
+                <a 
+                  href={selectedProject.documentation.pdfUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[#0AFFFF]/20 hover:bg-[#0AFFFF]/30 text-[#0AFFFF] rounded-lg border border-[#0AFFFF]/50 transition-all text-sm sm:text-base"
+                >
+                  <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
+                  Télécharger la documentation PDF
+                </a>
+              )}
             </div>
           )}
         </DialogContent>

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("accueil");
 
   const handleDownloadCV = () => {
@@ -28,6 +29,7 @@ const Sidebar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       window.history.pushState(null, '', to);
+      setMobileOpen(false);
     }
   };
 
@@ -46,89 +48,137 @@ const Sidebar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <aside 
-      className={`fixed left-0 top-0 h-full z-50 border-r border-slate-700/30 transition-all duration-300 flex flex-col bg-transparent ${
-        collapsed ? "w-16" : "w-56"
-      }`}
-    >
-      {/* Photo de profil */}
-      <div className={`p-4 border-b border-slate-700/50 flex items-center ${collapsed ? "justify-center" : "justify-between"}`}>
-        <div className="w-28 h-28 rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0">
-          <img 
-            src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
-            alt="Divine Oubourra" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className={`p-1.5 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800 flex-shrink-0 ${collapsed ? "hidden" : ""}`}
-          aria-label="Fermer le menu"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-      </div>
-      {collapsed && (
-        <button
-          onClick={() => setCollapsed(false)}
-          className="p-2 mx-auto mt-2 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800"
-          aria-label="Ouvrir le menu"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+    <>
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setMobileOpen(true)}
+        className="fixed top-4 left-4 z-50 lg:hidden p-3 rounded-lg bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 text-cyan-400 hover:bg-slate-700 transition-all"
+        aria-label="Ouvrir le menu"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
       )}
 
-      {/* Navigation */}
-      <nav className="flex-1 py-4 overflow-y-auto">
-        <ul className="space-y-1 px-2">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <li key={link.to}>
-                <a
-                  href={link.to}
-                  onClick={(e) => handleNavClick(e, link.to)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
-                    isActive
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
-                      : "text-slate-300 hover:bg-slate-800 hover:text-cyan-300"
-                  }`}
-                  title={collapsed ? link.label : undefined}
-                >
-                  <link.icon className="w-5 h-5 flex-shrink-0" />
-                  <span className={`transition-opacity whitespace-nowrap ${collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"}`}>
-                    {link.label}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      {/* Sidebar */}
+      <aside 
+        className={`fixed left-0 top-0 h-full z-50 border-r border-slate-700/30 transition-all duration-300 flex flex-col bg-slate-900/95 backdrop-blur-md
+          ${collapsed ? "lg:w-16" : "lg:w-56"}
+          ${mobileOpen ? "translate-x-0 w-64" : "-translate-x-full lg:translate-x-0"}
+        `}
+      >
+        {/* Header avec photo */}
+        <div className={`p-4 border-b border-slate-700/50 flex items-center ${collapsed && !mobileOpen ? "justify-center" : "justify-between"}`}>
+          <div className={`rounded-full border-2 border-cyan-400/50 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex-shrink-0 transition-all duration-300 ${
+            collapsed && !mobileOpen ? "w-10 h-10" : "w-20 h-20 lg:w-24 lg:h-24"
+          }`}>
+            <img 
+              src="/lovable-uploads/d6e3318f-f5d5-4e24-b86e-8fb4dbb57750.png" 
+              alt="Divine Oubourra" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* Close button mobile */}
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="p-1.5 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800 flex-shrink-0 lg:hidden"
+            aria-label="Fermer le menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          
+          {/* Collapse button desktop */}
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className={`p-1.5 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800 flex-shrink-0 hidden lg:block ${collapsed ? "hidden" : ""}`}
+            aria-label="Réduire le menu"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+        </div>
+        
+        {/* Expand button when collapsed on desktop */}
+        {collapsed && (
+          <button
+            onClick={() => setCollapsed(false)}
+            className="p-2 mx-auto mt-2 text-slate-400 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-800 hidden lg:block"
+            aria-label="Ouvrir le menu"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        )}
 
-      {/* CV Download Button */}
-      <div className="p-3 border-t border-slate-700/50">
-        <Button
-          variant="outline"
-          size="sm"
-          className={`w-full rounded-lg bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all ${
-            collapsed ? "px-2" : ""
-          }`}
-          onClick={handleDownloadCV}
-          title={collapsed ? "Télécharger CV" : undefined}
-        >
-          <FileDown className={`h-4 w-4 ${collapsed ? "" : "mr-2"}`} />
-          <span className={`transition-opacity whitespace-nowrap ${collapsed ? "hidden" : "block"}`}>
-            Télécharger CV
-          </span>
-        </Button>
-      </div>
-    </aside>
+        {/* Navigation */}
+        <nav className="flex-1 py-4 overflow-y-auto">
+          <ul className="space-y-1 px-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              const showText = mobileOpen || !collapsed;
+              return (
+                <li key={link.to}>
+                  <a
+                    href={link.to}
+                    onClick={(e) => handleNavClick(e, link.to)}
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
+                      isActive
+                        ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800 hover:text-cyan-300"
+                    }`}
+                    title={!showText ? link.label : undefined}
+                  >
+                    <link.icon className="w-5 h-5 flex-shrink-0" />
+                    <span className={`transition-opacity whitespace-nowrap ${showText ? "opacity-100" : "opacity-0 w-0 overflow-hidden lg:opacity-0"}`}>
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* CV Download Button */}
+        <div className="p-3 border-t border-slate-700/50">
+          <Button
+            variant="outline"
+            size="sm"
+            className={`w-full rounded-lg bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all ${
+              collapsed && !mobileOpen ? "px-2" : ""
+            }`}
+            onClick={handleDownloadCV}
+            title={collapsed && !mobileOpen ? "Télécharger CV" : undefined}
+          >
+            <FileDown className={`h-4 w-4 ${collapsed && !mobileOpen ? "" : "mr-2"}`} />
+            <span className={`transition-opacity whitespace-nowrap ${mobileOpen || !collapsed ? "block" : "hidden"}`}>
+              Télécharger CV
+            </span>
+          </Button>
+        </div>
+      </aside>
+    </>
   );
 };
 
