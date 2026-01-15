@@ -29,9 +29,17 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experiences">
+    <section id="experiences" className="py-20">
       <div className="section-container">
-        <span className="title-badge">Expériences</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Expériences
+          </h2>
+          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+            Parcours professionnel et stages réalisés
+          </p>
+        </div>
         
         <div className="space-y-6">
           {experiences.map((experience, index) => (
