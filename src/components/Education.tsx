@@ -17,9 +17,17 @@ const Education = () => {
   ];
 
   return (
-    <section id="formation">
+    <section id="formation" className="py-20">
       <div className="section-container">
-        <span className="title-badge animate-fade-up">Formation</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Formation
+          </h2>
+          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+            Parcours académique et certifications obtenues
+          </p>
+        </div>
         
         <div className="max-w-4xl mx-auto space-y-6">
           {/* BTS SIO Card */}

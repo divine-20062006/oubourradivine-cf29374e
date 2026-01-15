@@ -133,9 +133,17 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projets">
+    <section id="projets" className="py-20">
       <div className="section-container">
-        <span className="title-badge">Réalisations</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Projets
+          </h2>
+          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+            Réalisations techniques et projets professionnels
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (

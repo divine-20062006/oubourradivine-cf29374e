@@ -36,10 +36,17 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section id="competences">
+    <section id="competences" className="py-20">
       <div className="section-container">
-        <span className="title-badge">Expertise</span>
-        <h2 className="section-title">Compétences Techniques</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Compétences
+          </h2>
+          <div className="w-16 h-0.5 bg-cyan-500 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-lg mx-auto font-light">
+            Expertise technique en systèmes, réseaux et sécurité
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
