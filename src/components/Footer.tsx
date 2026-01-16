@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="py-4 w-full bg-[#1A1F2C]/80 backdrop-blur-md mt-auto">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
           <div className="text-white/60 text-sm">
             © {currentYear} Portfolio Divine Oubourra - Tous droits réservés
           </div>
@@ -20,9 +20,10 @@ const Footer = () => {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-white/60 hover:text-[#00FF41] transition-colors flex items-center gap-1"
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2 px-4 py-2"
               >
-                <Info className="w-4 h-4" /> Mentions légales
+                <Info className="w-4 h-4" />
+                <span>Mentions légales</span>
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[550px] bg-[#1A1F2C] text-white border-[#00FF41]/30">
