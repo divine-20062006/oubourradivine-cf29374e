@@ -33,7 +33,7 @@ const Footer = () => {
                 <div>
                   <h3 className="font-semibold mb-1">Propriétaire du site</h3>
                   <p>Divine Oubourra</p>
-                  <p>Email de contact: divine.oubourra@example.com</p>
+                  <p>Email de contact: oubourradivine27@gmail.com</p>
                 </div>
                 
                 <div>
