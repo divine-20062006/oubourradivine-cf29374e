@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center pt-20 lg:pt-16 overflow-hidden">
+    <section id="accueil" className="min-h-screen flex items-start justify-center pt-24 sm:pt-28 lg:pt-32 overflow-hidden">
       <div className="section-container relative flex items-center justify-center px-4 sm:px-6">
 
         <div className={`max-w-3xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

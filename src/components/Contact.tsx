@@ -1,5 +1,5 @@
 import ContactForm from "./contact/ContactForm";
-import { Phone, Linkedin, Mail, Github } from "lucide-react";
+import { Linkedin, Mail, Github } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -28,19 +28,6 @@ const Contact = () => {
               </h2>
               
               <div className="space-y-4 sm:space-y-5">
-                <a 
-                  href="tel:0780842417"
-                  className="flex items-center gap-3 sm:gap-4 group"
-                >
-                  <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors flex-shrink-0">
-                    <Phone className="w-4 h-4 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-slate-500 text-xs uppercase tracking-wider mb-0.5">Téléphone</p>
-                    <p className="text-white font-medium text-sm sm:text-base group-hover:text-cyan-400 transition-colors">07 80 84 24 17</p>
-                  </div>
-                </a>
-
                 <a 
                   href="https://www.linkedin.com/in/divine-oubourra-b871a4338/" 
                   target="_blank" 
