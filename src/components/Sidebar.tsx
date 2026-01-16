@@ -131,6 +131,24 @@ const Sidebar = () => {
           </button>
         )}
 
+        {/* CV Download Button - moved higher */}
+        <div className="p-3 border-b border-slate-700/50">
+          <Button
+            variant="outline"
+            size="sm"
+            className={`w-full rounded-lg bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all ${
+              collapsed && !mobileOpen ? "px-2" : ""
+            }`}
+            onClick={handleDownloadCV}
+            title={collapsed && !mobileOpen ? "Télécharger CV" : undefined}
+          >
+            <FileDown className={`h-4 w-4 ${collapsed && !mobileOpen ? "" : "mr-2"}`} />
+            <span className={`transition-opacity whitespace-nowrap ${mobileOpen || !collapsed ? "block" : "hidden"}`}>
+              Télécharger CV
+            </span>
+          </Button>
+        </div>
+
         {/* Navigation */}
         <nav className="flex-1 py-4 overflow-y-auto">
           <ul className="space-y-1 px-2">
@@ -159,24 +177,6 @@ const Sidebar = () => {
             })}
           </ul>
         </nav>
-
-        {/* CV Download Button */}
-        <div className="p-3 border-t border-slate-700/50">
-          <Button
-            variant="outline"
-            size="sm"
-            className={`w-full rounded-lg bg-transparent text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/20 hover:text-cyan-200 hover:border-cyan-400 transition-all ${
-              collapsed && !mobileOpen ? "px-2" : ""
-            }`}
-            onClick={handleDownloadCV}
-            title={collapsed && !mobileOpen ? "Télécharger CV" : undefined}
-          >
-            <FileDown className={`h-4 w-4 ${collapsed && !mobileOpen ? "" : "mr-2"}`} />
-            <span className={`transition-opacity whitespace-nowrap ${mobileOpen || !collapsed ? "block" : "hidden"}`}>
-              Télécharger CV
-            </span>
-          </Button>
-        </div>
       </aside>
     </>
   );
