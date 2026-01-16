@@ -33,29 +33,27 @@ const FloatingActions = () => {
 
   return (
     <div 
-      className={`fixed right-4 sm:right-6 bottom-4 sm:bottom-6 z-40 flex flex-col gap-2 sm:gap-3 transition-all duration-500 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'
+      className={`fixed right-4 bottom-20 z-40 flex flex-col gap-2 transition-all duration-500 ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
       }`}
     >
       <Button
-        variant="outline"
-        size="sm"
-        className="group rounded-full p-3 sm:px-4 sm:py-5 bg-slate-900/90 backdrop-blur-sm border-slate-600 text-white hover:bg-slate-800 hover:border-cyan-400 shadow-lg shadow-black/20 transition-all duration-300"
+        variant="ghost"
+        size="icon"
+        className="group h-10 w-10 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/50 text-white/70 hover:text-white hover:bg-slate-700 hover:border-cyan-400/50 shadow-md transition-all duration-300"
         onClick={handleDownloadCV}
         title="Télécharger CV"
       >
-        <FileDown className="h-4 w-4 sm:mr-2 group-hover:text-cyan-400 transition-colors" />
-        <span className="hidden sm:inline text-sm">Télécharger CV</span>
+        <FileDown className="h-4 w-4 group-hover:text-cyan-400 transition-colors" />
       </Button>
       
       <Button
-        size="sm"
-        className="rounded-full p-3 sm:px-4 sm:py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300"
+        size="icon"
+        className="h-10 w-10 rounded-full bg-cyan-600/90 backdrop-blur-sm text-white hover:bg-cyan-500 shadow-md shadow-cyan-500/20 transition-all duration-300"
         onClick={handleContactClick}
         title="Me contacter"
       >
-        <Mail className="h-4 w-4 sm:mr-2" />
-        <span className="hidden sm:inline text-sm">Me contacter</span>
+        <Mail className="h-4 w-4" />
       </Button>
     </div>
   );
