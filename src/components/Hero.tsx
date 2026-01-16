@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="accueil" className="min-h-screen flex items-start justify-center pt-24 sm:pt-28 lg:pt-32 overflow-hidden">
+    <section id="accueil" className="min-h-screen flex items-start justify-center pt-16 sm:pt-20 lg:pt-24 overflow-hidden">
       <div className="section-container relative flex items-center justify-center px-4 sm:px-6">
 
         <div className={`max-w-3xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -87,33 +87,6 @@ const Hero = () => {
             ))}
           </div>
           
-          {/* Boutons d'action épurés */}
-          <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-10 sm:mt-12 px-4 transition-all duration-700 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <Button 
-              variant="outline" 
-              className="group rounded-full px-5 sm:px-6 py-4 sm:py-5 bg-transparent border-slate-500 text-white hover:bg-white/5 hover:border-cyan-400 transition-all duration-300 w-full sm:w-auto"
-              onClick={handleDownloadCV}
-            >
-              <FileDown className="mr-2 h-4 w-4 group-hover:text-cyan-400 transition-colors" /> 
-              Télécharger mon CV
-            </Button>
-            
-            <a 
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="w-full sm:w-auto"
-            >
-              <Button 
-                className="rounded-full px-5 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 w-full"
-              >
-                Me contacter
-              </Button>
-            </a>
-          </div>
-
           {/* Indicateur scroll discret - hidden on small mobile */}
           <div className={`mt-12 sm:mt-16 hidden sm:block transition-all duration-700 delay-1200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <div className="flex flex-col items-center gap-2 text-slate-500">

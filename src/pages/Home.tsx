@@ -4,6 +4,7 @@ import Projects from "../components/Projects";
 import Experience from "../components/Experience";
 import Education from "../components/Education";
 import Contact from "../components/Contact";
+import FloatingActions from "../components/FloatingActions";
 import { useEffect } from "react";
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
       <Experience />
       <Education />
       <Contact />
+      <FloatingActions />
     </main>
   );
 };
