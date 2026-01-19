@@ -65,7 +65,7 @@ const Hero = () => {
 
           {/* Titre professionnel */}
           <p className={`text-base sm:text-lg md:text-xl text-cyan-400 font-medium tracking-wider sm:tracking-widest uppercase mb-6 sm:mb-8 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            Technicienne Systèmes & Réseaux
+            Technicienne Systèmes, Réseaux & Cybersécurité
           </p>
           
           {/* Description avec effet machine à écrire */}
@@ -76,7 +76,7 @@ const Hero = () => {
 
           {/* Tags de compétences minimalistes */}
           <div className={`flex flex-wrap justify-center gap-2 mt-8 sm:mt-10 px-2 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Cloud'].map((skill, index) => (
+            {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Script'].map((skill, index) => (
               <span 
                 key={skill}
                 className="px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-cyan-400/30 transition-all duration-300"
