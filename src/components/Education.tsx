@@ -17,9 +17,9 @@ const Education = () => {
   ];
 
   return (
-    <section id="formation" className="py-12 sm:py-16 lg:py-20">
-      <div className="section-container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+    <section id="formation" className="py-10 sm:py-14 lg:py-16">
+      <div className="section-container">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
             Formation
           </h2>
@@ -29,7 +29,7 @@ const Education = () => {
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* BTS SIO Card */}
           <div className="glass-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: "100ms" }}>
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-4 sm:mb-6">

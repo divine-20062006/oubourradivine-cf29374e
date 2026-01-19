@@ -133,8 +133,8 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projets" className="py-12 sm:py-16 lg:py-20">
-      <div className="section-container px-4 sm:px-6 lg:px-8">
+    <section id="projets" className="py-10 sm:py-14 lg:py-16">
+      <div className="section-container">
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
             Projets

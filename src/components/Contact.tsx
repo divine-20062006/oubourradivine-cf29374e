@@ -5,9 +5,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen relative py-12 sm:py-16 lg:py-20"
+      className="min-h-[80vh] relative py-10 sm:py-14 lg:py-16 flex items-center"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="section-container">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
