@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="accueil" className="min-h-[85vh] flex items-center justify-center pt-8 sm:pt-12 lg:pt-16 overflow-hidden">
+    <section id="accueil" className="min-h-[85vh] flex items-center justify-center pt-8 sm:pt-12 lg:pt-16 overflow-x-hidden">
       <div className="section-container relative flex items-center justify-center">
 
         <div className={`max-w-3xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -56,15 +56,15 @@ const Hero = () => {
           </div>
 
           {/* Nom avec ligne décorative */}
-          <div className={`relative inline-block mb-4 sm:mb-6 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+          <div className={`relative inline-block mb-4 sm:mb-6 max-w-full px-2 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-bold tracking-tight leading-[1.05] break-words">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Divine OUBOURRA</span>
             </h1>
             <div className={`absolute -bottom-2 sm:-bottom-3 left-1/2 -translate-x-1/2 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent transition-all duration-1000 delay-500 ${isVisible ? 'w-20 sm:w-32' : 'w-0'}`} />
           </div>
 
           {/* Titre professionnel */}
-          <p className={`text-base sm:text-lg md:text-xl text-cyan-400 font-medium tracking-wider sm:tracking-widest uppercase mb-6 sm:mb-8 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className={`text-base sm:text-lg md:text-xl text-cyan-400 font-medium tracking-wider sm:tracking-widest uppercase mb-6 sm:mb-8 px-2 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             Technicienne Systèmes, Réseaux & Cybersécurité
           </p>
           
