@@ -5,15 +5,21 @@
 
 @layer base {
   :root {
-    --background: 222 24% 13%; /* Dark cybersecurity theme background */
+    --background: 222 24% 13%;
     --foreground: 210 40% 98%;
     --border: 214 16% 20%;
     --input: 214 16% 20%;
     --ring: 222 24% 13%;
+    --cyan: 180 100% 52%;
+    --green: 120 100% 50%;
   }
 
   body {
     @apply bg-background text-foreground antialiased font-inter;
+  }
+
+  * {
+    scroll-behavior: smooth;
   }
 }
 
@@ -30,30 +36,16 @@
     @apply text-3xl sm:text-4xl font-bold mb-8;
   }
   
-  /* Add glass effect for card backgrounds - cyber theme */
+  /* Premium glass card */
   .glass-card {
-    @apply bg-[#1A1F2C]/90 backdrop-blur-sm border border-[#0AFFFF]/40;
+    @apply bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-xl shadow-black/20;
   }
-  
-  /* Improved text visibility */
-  .text-visible {
-    @apply text-white;
+
+  .glass-card-hover {
+    @apply glass-card hover:bg-slate-800/60 hover:border-cyan-400/30 hover:shadow-cyan-500/10 transition-all duration-500;
   }
-  
-  .text-visible-secondary {
-    @apply text-white/90;
-  }
-  
-  .text-visible-muted {
-    @apply text-white/80;
-  }
-  
-  /* Add cyber terminal effect */
-  .cyber-terminal {
-    @apply bg-[#121212] border border-[#00FF41]/30 text-[#00FF41] font-mono;
-  }
-  
-  /* Add cyber glow effect */
+
+  /* Cyber glow */
   .cyber-glow {
     @apply relative;
   }
@@ -61,9 +53,44 @@
   .cyber-glow::after {
     @apply content-[''] absolute -inset-[1px] bg-gradient-to-r from-[#0AFFFF] to-[#FF003C] opacity-50 blur-sm -z-10;
   }
+
+  /* Section divider */
+  .section-divider {
+    @apply w-12 sm:w-16 h-0.5 mx-auto;
+    background: linear-gradient(90deg, transparent, #0AFFFF, transparent);
+  }
+
+  /* Fade in on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply px-3 py-1 text-xs sm:text-sm rounded-full bg-white/5 border border-white/10 text-slate-300
+           hover:bg-cyan-400/10 hover:border-cyan-400/40 hover:text-cyan-300 transition-all duration-300;
+  }
+
+  /* Nav active indicator */
+  .nav-active {
+    @apply bg-cyan-500/15 text-cyan-400 border-l-2 border-cyan-400;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #0AFFFF, #3b82f6);
+  }
 }
 
-/* Custom keyframes for animations */
+/* Custom keyframes */
 @keyframes scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
@@ -79,8 +106,12 @@
   50% { transform: translateY(-15px); }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
+@keyframes glow-border {
+  0%, 100% { border-color: rgba(10, 255, 255, 0.2); }
+  50% { border-color: rgba(10, 255, 255, 0.5); }
+}

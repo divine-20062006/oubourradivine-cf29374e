@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FileDown } from "lucide-react";
+import { FileDown, ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 
@@ -11,12 +11,12 @@ const Hero = () => {
   const fullText = "Spécialisée en administration systèmes, réseaux et cybersécurité, à la recherche de nouveaux défis techniques.";
 
   useEffect(() => {
-    setIsVisible(true);
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!isVisible) return;
-    
     let currentIndex = 0;
     const typeInterval = setInterval(() => {
       if (currentIndex <= fullText.length) {
@@ -25,85 +25,117 @@ const Hero = () => {
       } else {
         clearInterval(typeInterval);
       }
-    }, 30);
-
+    }, 28);
     return () => clearInterval(typeInterval);
   }, [isVisible]);
 
   useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
+    const cursorInterval = setInterval(() => setShowCursor(prev => !prev), 530);
     return () => clearInterval(cursorInterval);
   }, []);
 
   const handleDownloadCV = () => {
-    const cvUrl = "https://cvdesignr.com/p/6932bf7989186";
-    const fileName = 'CV_OUBOURRA_Divine.pdf';
-    downloadExternalFile(cvUrl, fileName);
+    downloadExternalFile("https://cvdesignr.com/p/6932bf7989186", 'CV_OUBOURRA_Divine.pdf');
+  };
+
+  const handleScrollDown = () => {
+    document.querySelector('#competences')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="accueil" className="min-h-[85vh] flex items-center justify-center pt-6 sm:pt-10 md:pt-12 lg:pt-16 px-4 sm:px-6 overflow-x-hidden">
-      <div className="w-full max-w-4xl mx-auto relative flex items-center justify-center">
+    <section
+      id="accueil"
+      className="min-h-[90vh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-x-hidden relative"
+    >
+      {/* Ambient glow */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className={`absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] rounded-full bg-cyan-500/5 blur-[100px] transition-opacity duration-2000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`absolute bottom-1/4 right-1/4 w-[30vw] h-[30vh] rounded-full bg-blue-600/5 blur-[80px] transition-opacity duration-2000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+      </div>
 
-        <div className={`w-full text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          
-          {/* Badge professionnel - fully responsive */}
-          <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-4 sm:mb-6 md:mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0" />
-            <span className="text-[10px] sm:text-xs md:text-sm text-slate-300 tracking-wide whitespace-nowrap">Disponible pour une alternance</span>
-          </div>
+      <div className="w-full max-w-3xl mx-auto text-center flex-1 flex flex-col items-center justify-center py-16 sm:py-20">
 
-          {/* Nom avec ligne décorative - fluid typography */}
-          <div className={`relative inline-block mb-3 sm:mb-4 md:mb-6 w-full transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-bold tracking-tight leading-[1.1]">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Divine OUBOURRA</span>
-            </h1>
-            <div className={`absolute -bottom-1.5 sm:-bottom-2 md:-bottom-3 left-1/2 -translate-x-1/2 h-0.5 sm:h-[3px] md:h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent transition-all duration-1000 delay-500 ${isVisible ? 'w-16 sm:w-24 md:w-32' : 'w-0'}`} />
-          </div>
-
-          {/* Titre professionnel - responsive text */}
-          <p className={`text-[clamp(0.75rem,3vw,1.25rem)] text-cyan-400 font-medium tracking-wide sm:tracking-wider md:tracking-widest uppercase mb-4 sm:mb-6 md:mb-8 px-2 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            Technicienne Systèmes, Réseaux & Cybersécurité
-          </p>
-          
-          {/* Description avec effet machine à écrire */}
-          <p className={`text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto min-h-[60px] sm:min-h-[70px] md:min-h-[60px] px-2 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            {displayedText}
-            <span className={`inline-block w-0.5 h-3.5 sm:h-4 md:h-5 bg-cyan-400 ml-1 align-middle ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
-          </p>
-
-          {/* Tags de compétences - responsive grid */}
-          <div className={`flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8 md:mt-10 px-1 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Script'].map((skill, index) => (
-              <span 
-                key={skill}
-                className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-cyan-400/30 transition-all duration-300"
-                style={{ transitionDelay: `${800 + index * 100}ms` }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-          
-          {/* Indicateur scroll discret - hidden on mobile */}
-          <div className={`mt-8 sm:mt-12 md:mt-16 hidden md:block transition-all duration-700 delay-1200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="flex flex-col items-center gap-2 text-slate-500">
-              <span className="text-xs uppercase tracking-widest">Explorer</span>
-              <div className="w-5 h-8 border border-slate-600 rounded-full flex justify-center p-1">
-                <div className="w-1 h-2 bg-cyan-400 rounded-full animate-bounce" />
-              </div>
-            </div>
-          </div>
+        {/* Status badge */}
+        <div
+          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8 sm:mb-10 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+          style={{ transitionDelay: '100ms' }}
+        >
+          <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+          <span className="text-[11px] sm:text-xs text-slate-300 tracking-widest uppercase font-medium whitespace-nowrap">
+            Disponible pour une alternance
+          </span>
         </div>
-        
-        {/* Éléments décoratifs subtils */}
-        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-          <div className={`absolute top-1/4 right-1/4 w-24 sm:w-48 md:w-64 h-24 sm:h-48 md:h-64 rounded-full bg-cyan-500/5 blur-3xl transition-all duration-1500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
-          <div className={`absolute bottom-1/4 left-1/4 w-32 sm:w-56 md:w-72 h-32 sm:h-56 md:h-72 rounded-full bg-blue-500/5 blur-3xl transition-all duration-1500 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+
+        {/* Name */}
+        <div
+          className={`mb-4 sm:mb-5 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          style={{ transitionDelay: '200ms' }}
+        >
+          <h1 className="text-[clamp(2rem,8vw,5rem)] font-bold tracking-tight leading-none">
+            <span className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(135deg, #0AFFFF 0%, #38bdf8 50%, #6366f1 100%)' }}>
+              Divine OUBOURRA
+            </span>
+          </h1>
+          {/* Decorative underline */}
+          <div
+            className={`mx-auto mt-3 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent transition-all duration-1000 ${isVisible ? 'w-2/3 sm:w-1/2' : 'w-0'}`}
+            style={{ transitionDelay: '600ms' }}
+          />
+        </div>
+
+        {/* Title */}
+        <p
+          className={`text-[clamp(0.7rem,2.5vw,1.1rem)] text-cyan-400 font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-6 sm:mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          style={{ transitionDelay: '350ms' }}
+        >
+          Technicienne Systèmes, Réseaux &amp; Cybersécurité
+        </p>
+
+        {/* Typewriter */}
+        <p
+          className={`text-sm sm:text-base md:text-lg text-slate-300/90 leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          style={{ transitionDelay: '450ms', minHeight: '3.5rem' }}
+        >
+          {displayedText}
+          <span className={`inline-block w-0.5 h-4 bg-cyan-400 ml-1 align-middle ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
+        </p>
+
+        {/* Skill tags */}
+        <div
+          className={`flex flex-wrap justify-center gap-2 mb-10 sm:mb-12 px-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          style={{ transitionDelay: '550ms' }}
+        >
+          {['Cybersécurité', 'Réseaux', 'Windows Server', 'Linux', 'Script'].map((skill) => (
+            <span key={skill} className="tag-pill text-xs sm:text-sm">{skill}</span>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div
+          className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          style={{ transitionDelay: '650ms' }}
+        >
+          <Button
+            onClick={handleDownloadCV}
+            className="group px-6 py-2.5 rounded-xl text-sm font-medium border border-cyan-400/40 bg-cyan-400/10 hover:bg-cyan-400/20 text-cyan-300 hover:text-white hover:border-cyan-400/70 transition-all duration-300 shadow-lg shadow-cyan-500/5 hover:shadow-cyan-500/20"
+          >
+            <FileDown className="w-4 h-4 mr-2 group-hover:-translate-y-0.5 transition-transform" />
+            Télécharger mon CV
+          </Button>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <button
+        onClick={handleScrollDown}
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 hover:text-cyan-400 transition-all duration-500 hidden md:flex ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ transitionDelay: '1200ms' }}
+        aria-label="Défiler vers le bas"
+      >
+        <span className="text-[10px] uppercase tracking-[0.2em]">Explorer</span>
+        <ArrowDown className="w-4 h-4 animate-bounce" />
+      </button>
     </section>
   );
 };
