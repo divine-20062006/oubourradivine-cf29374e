@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { FileText, ExternalLink, X } from "lucide-react";
+import { FileText, ExternalLink, Tag, ChevronRight } from "lucide-react";
 import openvpnImage from "@/assets/openvpn-project.png";
 import monitoringImage from "@/assets/monitoring-project.jpg";
+
 const projects = [
   {
     id: "salac",
     title: "Projet SALAC",
+    subtitle: "Application web immobilière sécurisée",
     tags: ["PHP", "MySQL", "Sécurité Web"],
     image: "/lovable-uploads/56506efd-d74a-4e7e-b1ae-27fd9053503d.png",
     hasDocumentation: true,
@@ -19,12 +21,7 @@ const projects = [
         "Gérer les données via une base de données SQL",
         "Appliquer les bonnes pratiques de sécurité web"
       ],
-      technologies: [
-        "PHP",
-        "SQL / MySQL",
-        "Gestion des sessions utilisateurs",
-        "Requêtes préparées pour sécuriser les formulaires"
-      ],
+      technologies: ["PHP", "SQL / MySQL", "Gestion des sessions utilisateurs", "Requêtes préparées pour sécuriser les formulaires"],
       features: [
         "Affichage des biens immobiliers disponibles",
         "Ajout, modification et suppression des annonces",
@@ -42,7 +39,8 @@ const projects = [
   },
   {
     id: "openvpn",
-    title: "Mise en place d'un serveur VPN sur Debian 13",
+    title: "Serveur VPN sur Debian 13",
+    subtitle: "VPN sécurisé avec authentification LDAP",
     tags: ["OpenVPN", "Debian", "LDAP", "Sécurité"],
     image: openvpnImage,
     hasDocumentation: true,
@@ -55,14 +53,7 @@ const projects = [
         "Assurer la haute disponibilité avec double IP publique",
         "Sécuriser le trafic avec chiffrement fort AES-256-GCM"
       ],
-      technologies: [
-        "Debian 13 (Trixie)",
-        "OpenVPN (Full Tunnel)",
-        "Proxmox VE",
-        "LDAP/Active Directory (RFC 2307)",
-        "PKI / SSL/TLS",
-        "AES-256-GCM + SHA256"
-      ],
+      technologies: ["Debian 13 (Trixie)", "OpenVPN (Full Tunnel)", "Proxmox VE", "LDAP/Active Directory (RFC 2307)", "PKI / SSL/TLS", "AES-256-GCM + SHA256"],
       features: [
         "Serveur VPN avec support IPv4/IPv6",
         "Authentification centralisée LDAP avec gestion des groupes vpnAccess",
@@ -83,8 +74,9 @@ const projects = [
   },
   {
     id: "monitoring",
-    title: "Création d'un script de monitoring sur Python",
-    tags: ["Python", "Monitoring", "Automatisation", "Sécurité"],
+    title: "Script de monitoring Python",
+    subtitle: "Surveillance temps réel de l'infrastructure",
+    tags: ["Python", "Monitoring", "Automatisation"],
     image: monitoringImage,
     hasDocumentation: true,
     documentation: {
@@ -96,13 +88,7 @@ const projects = [
         "Générer des rapports et alertes automatiques",
         "Optimiser la réactivité de l'équipe IT"
       ],
-      technologies: [
-        "Python 3",
-        "Bibliothèques : psutil, requests, smtplib",
-        "API REST",
-        "Cron / Planification de tâches",
-        "SMTP pour notifications email"
-      ],
+      technologies: ["Python 3", "Bibliothèques : psutil, requests, smtplib", "API REST", "Cron / Planification de tâches", "SMTP pour notifications email"],
       features: [
         "Surveillance CPU, RAM, disque et réseau",
         "Vérification de la disponibilité des services (HTTP, SSH, DNS)",
@@ -122,8 +108,9 @@ const projects = [
   },
   {
     id: "glpi",
-    title: "Projet scolaire – Gestion d'un parc informatique GLPI",
-    tags: ["GLPI", "Gestion de parc", "IT Asset Management"],
+    title: "Gestion de parc GLPI",
+    subtitle: "IT Asset Management scolaire",
+    tags: ["GLPI", "Gestion de parc", "ITSM"],
     image: "/lovable-uploads/glpi-project-professional.jpg",
     hasDocumentation: false
   }
@@ -131,136 +118,173 @@ const projects = [
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    cardsRef.current.forEach((c) => c && observer.observe(c));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="projets" className="py-10 sm:py-14 lg:py-16">
+    <section id="projets" className="py-16 sm:py-20 lg:py-24">
       <div className="section-container">
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-3 sm:mb-4 tracking-tight">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-xs tracking-[0.3em] uppercase text-cyan-400/70 font-medium mb-3">
+            Réalisations
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
             Projets
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-cyan-500 mx-auto mb-4 sm:mb-6" />
-          <p className="text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-light px-4">
-            Réalisations techniques et projets professionnels
+          <div className="section-divider mb-5" />
+          <p className="text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-light">
+            Projets techniques et réalisations professionnelles
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`group glass-card rounded-xl overflow-hidden hover:shadow-lg transition-shadow animate-fade-up ${project.hasDocumentation ? 'cursor-pointer' : ''}`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className={`reveal group rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-sm
+                         hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-500
+                         ${project.hasDocumentation ? 'cursor-pointer' : ''}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => project.hasDocumentation && setSelectedProject(project)}
             >
+              {/* Image */}
               {project.image && (
                 <div className="aspect-video w-full overflow-hidden relative">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                   {project.hasDocumentation && (
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="text-white flex items-center gap-2 text-sm sm:text-lg font-medium">
-                        <FileText className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <div className="absolute inset-0 bg-slate-900/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="flex items-center gap-2 text-white font-medium bg-cyan-500/20 border border-cyan-400/40 rounded-full px-5 py-2.5 backdrop-blur-sm text-sm">
+                        <FileText className="w-4 h-4 text-cyan-400" />
                         Voir la documentation
                       </span>
                     </div>
                   )}
                 </div>
               )}
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white group-hover:text-[#0AFFFF] transition-colors">
+
+              {/* Content */}
+              <div className="p-5 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-cyan-300 transition-colors mb-1">
                   {project.title}
                 </h3>
+                <p className="text-slate-400 text-sm mb-3">{project.subtitle}</p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag-pill">{tag}</span>
+                  ))}
+                </div>
+
+                {project.hasDocumentation && (
+                  <div className="mt-4 flex items-center gap-1 text-cyan-400/60 text-xs group-hover:text-cyan-400 transition-colors">
+                    <span>Consulter le projet</span>
+                    <ChevronRight className="w-3 h-3" />
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Modal Documentation */}
+      {/* Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="w-[95vw] max-w-4xl max-h-[85vh] overflow-y-auto bg-slate-900 border-slate-700 text-white mx-2 sm:mx-auto">
+        <DialogContent className="w-[95vw] max-w-3xl max-h-[88vh] overflow-y-auto bg-slate-900/95 border-slate-700/50 text-white mx-2 sm:mx-auto backdrop-blur-md">
           <DialogHeader>
-            <DialogTitle className="text-lg sm:text-2xl font-bold text-[#0AFFFF] flex items-center gap-2 sm:gap-3 pr-8">
-              <FileText className="w-5 sm:w-6 h-5 sm:h-6 flex-shrink-0" />
+            <DialogTitle className="text-lg sm:text-xl font-bold text-cyan-400 flex items-center gap-2.5 pr-8">
+              <div className="p-2 rounded-lg bg-cyan-400/10 border border-cyan-400/20">
+                <FileText className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
+              </div>
               <span className="line-clamp-2">{selectedProject?.title}</span>
             </DialogTitle>
           </DialogHeader>
-          
+
           {selectedProject?.documentation && (
-            <div className="space-y-4 sm:space-y-6 mt-3 sm:mt-4">
-              {/* Contexte */}
-              <div className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-slate-700/50">
-                <h4 className="text-base sm:text-lg font-semibold text-[#00FF41] mb-2">Contexte</h4>
-                <p className="text-slate-300 text-sm sm:text-base">{selectedProject.documentation.context}</p>
+            <div className="space-y-5 mt-2">
+              <div className="bg-slate-800/50 rounded-xl p-4 border border-emerald-400/20">
+                <h4 className="text-sm font-semibold text-emerald-400 mb-1.5 uppercase tracking-wider">Contexte</h4>
+                <p className="text-slate-300 text-sm">{selectedProject.documentation.context}</p>
               </div>
 
-              {/* Description */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Description</h4>
-                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{selectedProject.documentation.description}</p>
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2 uppercase tracking-wider">Description</h4>
+                <p className="text-slate-300 leading-relaxed text-sm">{selectedProject.documentation.description}</p>
               </div>
 
-              {/* Objectifs */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Objectifs du projet</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2.5 uppercase tracking-wider">Objectifs</h4>
+                <ul className="space-y-1.5">
                   {selectedProject.documentation.objectives.map((obj, i) => (
-                    <li key={i}>{obj}</li>
+                    <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                      {obj}
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Technologies */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Technologies utilisées</h4>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2.5 uppercase tracking-wider">Technologies</h4>
+                <div className="flex flex-wrap gap-2">
                   {selectedProject.documentation.technologies.map((tech, i) => (
-                    <span key={i} className="px-2 sm:px-3 py-1 bg-slate-700/50 text-white rounded-full text-xs sm:text-sm border border-slate-600/50">
-                      {tech}
-                    </span>
+                    <span key={i} className="tag-pill">{tech}</span>
                   ))}
                 </div>
               </div>
 
-              {/* Fonctionnalités */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Fonctionnalités principales</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2.5 uppercase tracking-wider">Fonctionnalités</h4>
+                <ul className="space-y-1.5">
                   {selectedProject.documentation.features.map((feat, i) => (
-                    <li key={i}>{feat}</li>
+                    <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                      {feat}
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Compétences */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#0AFFFF] mb-2">Compétences développées</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1 text-sm sm:text-base">
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2.5 uppercase tracking-wider">Compétences développées</h4>
+                <ul className="space-y-1.5">
                   {selectedProject.documentation.skills.map((skill, i) => (
-                    <li key={i}>{skill}</li>
+                    <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
+                      {skill}
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Résultat */}
-              <div className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-[#00FF41]/30">
-                <h4 className="text-base sm:text-lg font-semibold text-[#00FF41] mb-2">Résultat</h4>
-                <p className="text-slate-300 text-sm sm:text-base">{selectedProject.documentation.result}</p>
+              <div className="bg-slate-800/50 rounded-xl p-4 border border-emerald-400/20">
+                <h4 className="text-sm font-semibold text-emerald-400 mb-1.5 uppercase tracking-wider">Résultat</h4>
+                <p className="text-slate-300 text-sm">{selectedProject.documentation.result}</p>
               </div>
 
-              {/* Bouton PDF */}
               {selectedProject.documentation.pdfUrl && (
-                <a 
-                  href={selectedProject.documentation.pdfUrl} 
-                  target="_blank" 
+                <a
+                  href={selectedProject.documentation.pdfUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[#0AFFFF]/20 hover:bg-[#0AFFFF]/30 text-[#0AFFFF] rounded-lg border border-[#0AFFFF]/50 transition-all text-sm sm:text-base"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-400/10 hover:bg-cyan-400/20 text-cyan-400
+                             rounded-xl border border-cyan-400/30 hover:border-cyan-400/50 transition-all duration-300 text-sm font-medium"
                 >
-                  <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
+                  <ExternalLink className="w-4 h-4" />
                   Télécharger la documentation PDF
                 </a>
               )}
