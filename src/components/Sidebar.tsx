@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [activeSection, setActiveSection] = useState("accueil");
 
   const handleDownloadCV = () => {
-    downloadExternalFile("https://cvdesignr.com/p/6932bf7989186", 'CV_OUBOURRA_Divine.pdf');
+    downloadExternalFile("https://cvdesignr.com/fr/cv-editor/cv_RqVAkL0MK4D28B", 'CV_OUBOURRA_Divine.pdf');
   };
 
   const navLinks = [

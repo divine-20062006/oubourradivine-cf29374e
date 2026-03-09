@@ -22,7 +22,7 @@ const FloatingActions = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    const cvUrl = "https://cvdesignr.com/p/6932bf7989186";
+    const cvUrl = "https://cvdesignr.com/fr/cv-editor/cv_RqVAkL0MK4D28B";
     const fileName = 'CV_OUBOURRA_Divine.pdf';
     downloadExternalFile(cvUrl, fileName);
   };
