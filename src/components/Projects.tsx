@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { FileText, ExternalLink, Tag, ChevronRight } from "lucide-react";
 import openvpnImage from "@/assets/openvpn-project.png";
 import monitoringImage from "@/assets/monitoring-project.jpg";
+import wifiImage from "@/assets/wifi-project.jpg";
 
 const projects = [
   {
