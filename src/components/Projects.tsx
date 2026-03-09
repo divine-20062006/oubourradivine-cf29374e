@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FileText, ExternalLink, Tag, ChevronRight } from "lucide-react";
 import openvpnImage from "@/assets/openvpn-project.png";
