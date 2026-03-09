@@ -229,7 +229,7 @@ const Projects = () => {
         </div>
 
         {/* Deuxième rangée - 2 projets centrés */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-[66.666%] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:max-w-[66.666%] mx-auto">
           {projects.slice(3).map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index + 3} ref={(el) => (cardsRef.current[index + 3] = el)} onClick={() => project.hasDocumentation && setSelectedProject(project)} />
           ))}
