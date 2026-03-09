@@ -313,8 +313,7 @@ const Projects = () => {
               {selectedProject.documentation.pdfUrl && (
                 <a
                   href={selectedProject.documentation.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-400/10 hover:bg-cyan-400/20 text-cyan-400
                              rounded-xl border border-cyan-400/30 hover:border-cyan-400/50 transition-all duration-300 text-sm font-medium"
                 >
