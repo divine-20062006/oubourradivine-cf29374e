@@ -108,6 +108,40 @@ const projects = [
     }
   },
   {
+    id: "wifi-invite",
+    title: "WiFi Invité sécurisé",
+    subtitle: "Documentation technique de création d'un WiFi invité en entreprise",
+    tags: ["WiFi", "Sécurité Réseau", "Infrastructure", "Documentation"],
+    image: wifiImage,
+    hasDocumentation: true,
+    documentation: {
+      description: "Proposition technique complète pour la mise en place d'un réseau WiFi invité sécurisé en entreprise. Le document compare toutes les solutions possibles (sans achat et avec achat), analyse les avantages et inconvénients de chaque option, et fournit des guides d'installation détaillés.",
+      context: "Projet réalisé dans le cadre de ma formation BTS SIO option SISR - Deuxième Année, au sein de l'établissement Saint Louis Collège Lycée & BTS",
+      objectives: [
+        "Créer un réseau WiFi invité isolé du réseau local interne",
+        "Comparer toutes les solutions disponibles (logicielles et matérielles)",
+        "Garantir la sécurité en isolant complètement les invités du réseau interne",
+        "Proposer une solution pérenne, maintenable et facile à gérer"
+      ],
+      technologies: ["WiFi 5 / WiFi 6", "VLAN", "TP-Link EAP / UniFi / Cisco / Aruba / MikroTik", "RaspAP / MyPublicWiFi", "PoE", "Portail captif"],
+      features: [
+        "Tableau comparatif de 15+ solutions WiFi",
+        "Analyse coût / complexité / sécurité / durée de vie",
+        "Solutions sans achat (PC en AP, RaspAP)",
+        "Solutions professionnelles (TP-Link, UniFi, Cisco, Aruba, Ruckus)",
+        "Guides d'installation pas à pas"
+      ],
+      skills: [
+        "Architecture réseau et sécurité WiFi",
+        "Analyse comparative et aide à la décision",
+        "Rédaction de documentation technique",
+        "Connaissance des équipements réseau professionnels"
+      ],
+      result: "Documentation technique exhaustive permettant à l'entreprise de choisir et déployer la solution WiFi invité la plus adaptée à ses besoins, avec isolation complète du réseau interne.",
+      pdfUrl: "/documents/mission3_portfolio.pdf"
+    }
+  },
+  {
     id: "glpi",
     title: "Gestion de parc GLPI",
     subtitle: "IT Asset Management scolaire",
