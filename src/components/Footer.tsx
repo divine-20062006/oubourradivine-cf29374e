@@ -9,8 +9,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-4 w-full bg-[#1A1F2C]/80 backdrop-blur-md mt-auto">
-      <div className="container mx-auto px-4">
+    <footer className="py-3 sm:py-4 w-full bg-[#1A1F2C]/80 backdrop-blur-md mt-auto">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
           <div className="text-white/60 text-sm">
             © {currentYear} Portfolio Divine Oubourra - Tous droits réservés
