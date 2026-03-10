@@ -33,7 +33,7 @@ const FloatingActions = () => {
 
   return (
     <div 
-      className={`fixed right-4 bottom-20 z-40 flex flex-col gap-2 transition-all duration-500 ${
+      className={`fixed right-3 sm:right-4 bottom-6 sm:bottom-20 z-40 flex flex-col gap-2 transition-all duration-500 ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
       }`}
     >

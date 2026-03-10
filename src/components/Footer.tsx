@@ -9,10 +9,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-4 w-full bg-[#1A1F2C]/80 backdrop-blur-md mt-auto">
-      <div className="container mx-auto px-4">
+    <footer className="py-3 sm:py-4 w-full bg-[#1A1F2C]/80 backdrop-blur-md mt-auto">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
-          <div className="text-white/60 text-sm">
+          <div className="text-white/60 text-xs sm:text-sm">
             © {currentYear} Portfolio Divine Oubourra - Tous droits réservés
           </div>
           <Dialog open={open} onOpenChange={setOpen}>
@@ -26,7 +26,7 @@ const Footer = () => {
                 <span>Mentions légales</span>
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[550px] bg-[#1A1F2C] text-white border-[#00FF41]/30">
+            <DialogContent className="w-[95vw] sm:max-w-[550px] bg-[#1A1F2C] text-white border-[#00FF41]/30 max-h-[85vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-[#00FF41]">Mentions légales</DialogTitle>
               </DialogHeader>
