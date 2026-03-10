@@ -50,7 +50,7 @@ const ContactForm = () => {
         </label>
         <textarea
           id="message"
-          rows={5}
+          rows={4}
           value={formData.message}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg bg-slate-900/50 border border-slate-600/50 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"

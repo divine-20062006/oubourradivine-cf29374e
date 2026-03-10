@@ -26,7 +26,7 @@ const Footer = () => {
                 <span>Mentions légales</span>
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[550px] bg-[#1A1F2C] text-white border-[#00FF41]/30">
+            <DialogContent className="w-[95vw] sm:max-w-[550px] bg-[#1A1F2C] text-white border-[#00FF41]/30 max-h-[85vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-[#00FF41]">Mentions légales</DialogTitle>
               </DialogHeader>
