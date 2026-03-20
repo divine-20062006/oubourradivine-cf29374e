@@ -19,6 +19,7 @@ const Sidebar = () => {
     { to: "#projets", icon: FolderGit2, label: "Projets", id: "projets" },
     { to: "#experiences", icon: Briefcase, label: "Expériences", id: "experiences" },
     { to: "#formation", icon: GraduationCap, label: "Formation", id: "formation" },
+    { to: "#veille", icon: Rss, label: "Veille Techno", id: "veille" },
     { to: "#contact", icon: Mail, label: "Contact", id: "contact" },
   ];
 

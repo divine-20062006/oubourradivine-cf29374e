@@ -35,6 +35,7 @@ const Home = () => {
       <Projects />
       <Experience />
       <Education />
+      <VeilleTechno />
       <Contact />
       <FloatingActions />
     </main>
