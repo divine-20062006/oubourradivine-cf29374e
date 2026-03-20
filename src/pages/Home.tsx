@@ -3,6 +3,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Experience from "../components/Experience";
 import Education from "../components/Education";
+import VeilleTechno from "../components/VeilleTechno";
 import Contact from "../components/Contact";
 import FloatingActions from "../components/FloatingActions";
 import { useEffect } from "react";
