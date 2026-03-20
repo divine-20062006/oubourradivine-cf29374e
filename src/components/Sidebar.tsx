@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Rss, Mail, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 import { useSidebarState } from "../contexts/SidebarContext";
