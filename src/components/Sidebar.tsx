@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Mail, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { FileDown, Home, Code, FolderGit2, Briefcase, GraduationCap, Rss, Mail, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { downloadExternalFile } from "../utils/downloadUtils";
 import { useSidebarState } from "../contexts/SidebarContext";
@@ -19,6 +19,7 @@ const Sidebar = () => {
     { to: "#projets", icon: FolderGit2, label: "Projets", id: "projets" },
     { to: "#experiences", icon: Briefcase, label: "Expériences", id: "experiences" },
     { to: "#formation", icon: GraduationCap, label: "Formation", id: "formation" },
+    { to: "#veille", icon: Rss, label: "Veille Techno", id: "veille" },
     { to: "#contact", icon: Mail, label: "Contact", id: "contact" },
   ];
 
