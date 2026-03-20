@@ -86,11 +86,11 @@ const sources = [
 ];
 
 const categorieColors: Record<string, string> = {
-  Analyse: "bg-blue-500/15 text-blue-400 border-blue-500/30",
-  Rapport: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
-  Recherche: "bg-purple-500/15 text-purple-400 border-purple-500/30",
-  Actualité: "bg-amber-500/15 text-amber-400 border-amber-500/30",
-  Tutoriel: "bg-rose-500/15 text-rose-400 border-rose-500/30",
+  Analyse: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+  Rapport: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  Recherche: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+  Actualité: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  Tutoriel: "text-rose-400 bg-rose-500/10 border-rose-500/20",
 };
 
 const VeilleTechno = () => {
@@ -98,11 +98,7 @@ const VeilleTechno = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
     cardsRef.current.forEach((card) => card && observer.observe(card));
@@ -112,148 +108,142 @@ const VeilleTechno = () => {
   return (
     <section id="veille" className="py-16 sm:py-20 lg:py-24">
       <div className="section-container">
-        {/* Header */}
-        <div
-          ref={(el) => { cardsRef.current[0] = el; }}
-          className="reveal text-center mb-10 sm:mb-14"
-        >
-          <span className="title-badge">
-            <Rss className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" />
-            Veille Technologique
+        {/* Header — same pattern as other sections */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-xs tracking-[0.3em] uppercase text-cyan-400/70 font-medium mb-3">
+            Veille technologique
           </span>
-          <h2 className="section-title">
-            Ma veille <span className="gradient-text">technologique</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+            Veille Technologique
           </h2>
-          <div className="section-divider mb-6" />
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Une veille régulière sur les enjeux de la cybersécurité et les technologies émergentes.
+          <div className="section-divider mb-5" />
+          <p className="text-slate-400 text-base sm:text-lg max-w-lg mx-auto font-light">
+            Une veille régulière sur la cybersécurité et les technologies émergentes
           </p>
         </div>
 
-        {/* Sujet principal */}
-        <div
-          ref={(el) => { cardsRef.current[1] = el; }}
-          className="reveal glass-card rounded-2xl p-5 sm:p-8 mb-8 sm:mb-10"
-          style={{ transitionDelay: "100ms" }}
-        >
-          <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-5">
-            <div className="p-2.5 sm:p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex-shrink-0">
-              <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
-                {sujetVeille.titre}
-              </h3>
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                {sujetVeille.description}
-              </p>
-            </div>
-          </div>
-
-          {/* Enjeux */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-5 sm:mb-6">
-            {sujetVeille.enjeux.map((enjeu) => (
-              <div
-                key={enjeu.titre}
-                className="p-3 sm:p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-400/20 transition-all duration-300"
-              >
-                <enjeu.icon className="w-4 h-4 text-cyan-400 mb-2" />
-                <h4 className="text-white text-sm font-semibold mb-1">{enjeu.titre}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{enjeu.desc}</p>
+        <div className="space-y-5 sm:space-y-6">
+          {/* Sujet principal — styled like Education BTS card */}
+          <div
+            ref={(el) => { cardsRef.current[0] = el; }}
+            className="reveal glass-card-hover rounded-2xl p-5 sm:p-6 lg:p-8 group"
+            style={{ transitionDelay: "0ms" }}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-6">
+              <div className="p-3 rounded-xl bg-cyan-400/10 border border-cyan-400/30 self-start">
+                <BookOpen className="w-7 h-7 text-cyan-400" />
               </div>
-            ))}
-          </div>
+              <div className="flex-1">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white group-hover:text-cyan-100 transition-colors">
+                  {sujetVeille.titre}
+                </h3>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                  {sujetVeille.description}
+                </p>
+              </div>
+            </div>
 
-          {/* Points clés */}
-          <div>
-            <h4 className="text-white text-sm font-semibold mb-3">Points clés de la veille</h4>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {sujetVeille.points.map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-2 text-slate-300 text-xs sm:text-sm"
+            {/* Enjeux — grid like certifications */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-6">
+              {sujetVeille.enjeux.map((enjeu) => (
+                <div
+                  key={enjeu.titre}
+                  className="flex items-start gap-3 px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700/40
+                             hover:border-cyan-400/40 hover:bg-slate-800/80 transition-all duration-300"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0" />
-                  {point}
-                </li>
+                  <div className="p-1.5 rounded-lg bg-cyan-400/10 mt-0.5">
+                    <enjeu.icon className="w-4 h-4 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white text-sm font-medium">{enjeu.titre}</h4>
+                    <p className="text-slate-500 text-xs leading-relaxed mt-0.5">{enjeu.desc}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
-          </div>
-        </div>
+            </div>
 
-        {/* Articles */}
-        <div
-          ref={(el) => { cardsRef.current[2] = el; }}
-          className="reveal mb-8 sm:mb-10"
-          style={{ transitionDelay: "200ms" }}
-        >
-          <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-5 flex items-center gap-2">
-            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
-            Articles & Ressources
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {articles.map((article, i) => (
-              <a
-                key={i}
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card-hover rounded-xl p-4 sm:p-5 group block"
-              >
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <span
-                    className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full border ${
-                      categorieColors[article.categorie] ?? "bg-white/5 text-slate-400 border-white/10"
-                    }`}
-                  >
-                    {article.categorie}
-                  </span>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-600 group-hover:text-cyan-400 transition-colors flex-shrink-0" />
-                </div>
-                <h4 className="text-white text-sm font-medium mb-2 leading-snug group-hover:text-cyan-300 transition-colors line-clamp-2">
-                  {article.titre}
-                </h4>
-                <div className="flex items-center gap-3 text-slate-500 text-xs">
-                  <span>{article.source}</span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {article.date}
-                  </span>
-                </div>
-              </a>
-            ))}
+            {/* Points clés — like skills list in Education */}
+            <div>
+              <h4 className="font-medium mb-3 text-slate-200 text-sm uppercase tracking-wider">Points clés de la veille</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {sujetVeille.points.map((point) => (
+                  <li key={point} className="flex items-start gap-2.5 text-slate-300 text-sm">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                    <span className="leading-relaxed">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {/* Sources */}
-        <div
-          ref={(el) => { cardsRef.current[3] = el; }}
-          className="reveal"
-          style={{ transitionDelay: "300ms" }}
-        >
-          <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-5 flex items-center gap-2">
-            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
-            Sources suivies
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {sources.map((source) => (
-              <a
-                key={source.nom}
-                href={source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-400/20 hover:bg-white/[0.05] transition-all duration-300 group"
-              >
-                <Rss className="w-4 h-4 text-slate-600 group-hover:text-cyan-400 transition-colors flex-shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-white text-sm font-medium truncate group-hover:text-cyan-300 transition-colors">
-                    {source.nom}
-                  </p>
-                  <p className="text-slate-600 text-xs">{source.type}</p>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-700 group-hover:text-cyan-400/50 transition-colors flex-shrink-0" />
-              </a>
-            ))}
+          {/* Articles — card grid like Skills */}
+          <div
+            ref={(el) => { cardsRef.current[1] = el; }}
+            className="reveal glass-card-hover rounded-2xl p-5 sm:p-6 lg:p-8"
+            style={{ transitionDelay: "120ms" }}
+          >
+            <h4 className="font-medium mb-4 text-slate-200 text-sm uppercase tracking-wider">Articles & Ressources</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+              {articles.map((article, i) => (
+                <a
+                  key={i}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-2.5 px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700/40
+                             hover:border-cyan-400/40 hover:bg-slate-800/80 transition-all duration-300 group/article"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-full border ${categorieColors[article.categorie] ?? "text-slate-400 bg-slate-800/50 border-slate-700/40"}`}>
+                      {article.categorie}
+                    </span>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-600 group-hover/article:text-cyan-400 transition-colors flex-shrink-0" />
+                  </div>
+                  <h5 className="text-white text-sm font-medium leading-snug group-hover/article:text-cyan-100 transition-colors line-clamp-2">
+                    {article.titre}
+                  </h5>
+                  <div className="flex items-center gap-3 text-slate-500 text-xs">
+                    <span>{article.source}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {article.date}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Sources — like certifications grid */}
+          <div
+            ref={(el) => { cardsRef.current[2] = el; }}
+            className="reveal glass-card-hover rounded-2xl p-5 sm:p-6 lg:p-8"
+            style={{ transitionDelay: "240ms" }}
+          >
+            <h4 className="font-medium mb-4 text-slate-200 text-sm uppercase tracking-wider">Sources suivies</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+              {sources.map((source) => (
+                <a
+                  key={source.nom}
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 bg-slate-800/50 rounded-xl border border-slate-700/40
+                             hover:border-emerald-400/40 hover:bg-slate-800/80 transition-all duration-300 group/source"
+                >
+                  <div className="p-1.5 rounded-lg bg-emerald-400/10">
+                    <Globe className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white text-sm font-medium truncate group-hover/source:text-emerald-100 transition-colors">
+                      {source.nom}
+                    </p>
+                    <p className="text-slate-500 text-xs">{source.type}</p>
+                  </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-700 group-hover/source:text-emerald-400/50 transition-colors flex-shrink-0" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
