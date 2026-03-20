@@ -40,10 +40,10 @@ const articles = [
     categorie: "Analyse",
   },
   {
-    titre: "ANSSI : rapport annuel sur les menaces cyber en France",
-    source: "ANSSI",
-    date: "Janvier 2026",
-    url: "https://www.ssi.gouv.fr",
+    titre: "Panorama de la cybermenace 2025 – Rapport ANSSI",
+    source: "CERT-FR / ANSSI",
+    date: "Mars 2026",
+    url: "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-002/",
     categorie: "Rapport",
   },
   {
@@ -61,18 +61,18 @@ const articles = [
     categorie: "Actualité",
   },
   {
-    titre: "SOAR : automatiser la réponse aux incidents avec l'IA",
+    titre: "Microsoft Security Copilot : l'IA pour gérer les incidents de sécurité",
     source: "IT-Connect",
-    date: "Novembre 2025",
-    url: "https://www.it-connect.fr",
+    date: "Mars 2023",
+    url: "https://www.it-connect.fr/microsoft-security-copilot-votre-nouvel-allie-base-sur-gpt-4-pour-gerer-les-incidents-de-securite/",
     categorie: "Tutoriel",
   },
   {
-    titre: "Panorama de la cybermenace 2025 – Bilan et perspectives",
-    source: "CERT-FR",
-    date: "Janvier 2026",
-    url: "https://www.cert.ssi.gouv.fr",
-    categorie: "Rapport",
+    titre: "Assisté par l'IA, un pirate compromet 600 firewalls Fortinet",
+    source: "IT-Connect",
+    date: "Février 2026",
+    url: "https://www.it-connect.fr/assiste-par-ia-un-pirate-a-compromis-600-firewalls-fortinet-en-5-semaines/",
+    categorie: "Actualité",
   },
 ];
 
