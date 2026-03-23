@@ -74,7 +74,7 @@ const Hero = () => {
           <h1 className="text-[clamp(2rem,8vw,5rem)] font-bold tracking-tight leading-none">
             <span className="text-transparent bg-clip-text"
               style={{ backgroundImage: 'linear-gradient(135deg, #0AFFFF 0%, #38bdf8 50%, #6366f1 100%)' }}>
-              Divine OUBOURRA
+              OUBOURRA Divine
             </span>
           </h1>
           {/* Decorative underline */}
